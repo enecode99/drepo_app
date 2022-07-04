@@ -12,96 +12,156 @@ import '../../auth/auth_util.dart';
 
 String formatPrice(int price) {
   // return formated price by separating each  hundred with a comma . eg; 100,000
-  return price.toString().replaceAllMapped(
+  String form;
+  form = price.toString().replaceAllMapped(
       new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return ("$form/=");
 }
 
-String charLimit22(String sentence) {
-  // return sentence by limiting number of characters to 30
-  if (sentence.length < 22) {
-    return sentence;
-  }
-  return '${sentence.substring(0, 22)}...';
+String formatPriceStr(String price) {
+  // return formated price by separating each  hundred with a comma . eg; 100,000
+  String form;
+  form = price.toString().replaceAllMapped(
+      new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return ("$form/=");
 }
 
-String charLimit88(String sentence) {
-  // return sentence by limiting number of characters to 30
-  if (sentence.length < 88) {
-    return sentence;
-  }
-  return '${sentence.substring(0, 88)}...';
+String formatPrice15(double price) {
+  // return 15% of mortgageGoal
+  String form;
+  price = .15 * price;
+  // return formated price by separating each  hundred with a comma . eg; 100,000
+  form = price.toString().replaceAllMapped(
+      new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return ("$form/=");
 }
 
-String charLimit300(String sentence) {
-  // return sentence by limiting number of characters to 30
-  if (sentence.length < 300) {
-    return sentence;
-  }
-  return '${sentence.substring(0, 300)}...';
+String formatPrice15M(double price) {
+  // return 15% of mortgageGoal
+  String form;
+  price = (1.35 * price) * .15;
+  // return formated price by separating each  hundred with a comma . eg; 100,000
+  form = price.toString().replaceAllMapped(
+      new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return ("$form/=");
 }
 
-int postCart(List<PostsRecord> cartPrice) {
-  // return sum of post_price in Posts document.
-  return cartPrice
-      .map((e) => e.postPrice.toString())
-      .map((s) => int.parse(s))
-      .fold(0, (p, e) => p + e);
+String formatPrice15H(double price) {
+  // return 15% of mortgageGoal
+  String form;
+  price = (1.83 * price) * .15;
+  // return formated price by separating each  hundred with a comma . eg; 100,000
+  form = price.toString().replaceAllMapped(
+      new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return ("$form/=");
 }
 
-bool rollSeen(DateTimeRange differNo) {
-  // if differNo is greater than 23 hours return true else return false.
-  return differNo != null && differNo.duration.inDays >= 1;
+String formatPrice30(double price) {
+  // return 30% of mortgageGoal
+  String form;
+  price = .3 * price;
+  // return formated price by separating each  hundred with a comma . eg; 100,000
+  form = price.toString().replaceAllMapped(
+      new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return ("$form/=");
 }
 
-bool rollVisible(
-  DateTime initialT,
-  DateTime finalT,
+String formatPrice52(double price) {
+  // return 0.521% of 12.5% of price.
+  String form;
+  price = .125 * price;
+  price = .0521 * price;
+  // return formated price by separating each  hundred with a comma . eg; 100,000
+  form = price.toString().replaceAllMapped(
+      new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return ("$form/=");
+}
+
+String formatPrice521(double price) {
+  // return 0.521% of 12.5% of price.
+  String form;
+  price = .125 * price;
+  price = .1042 * price;
+  // return formated price by separating each  hundred with a comma . eg; 100,000
+  form = price.toString().replaceAllMapped(
+      new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]},');
+  return ("$form/=");
+}
+
+double paidPercent(
+  int paidPrice,
+  String goalPrice,
 ) {
-  // if initialT-finalT  greater than 23 hours return true else return false.
-  if (initialT.difference(finalT).inHours > 23) {
-    return true;
+  // return percent of paidPrice against goalPrice.
+  final goalTotalAmount = num.parse(goalPrice);
+  double paidPercent;
+  if (goalTotalAmount == 0.0) {
+    paidPercent = 0.0;
   } else {
-    return false;
+    paidPercent = (paidPrice / goalTotalAmount).clamp(0, 100) * 100;
   }
+  paidPercent = (paidPercent / 100);
+  return (paidPercent);
 }
 
-int addCart(List<int> cartPrice) {
-  // return sum of cartPrice.
-  return cartPrice.reduce((value, item) => value + item);
-}
-
-int totalCart(
-  int cartQuantity,
-  int itemPrice,
+String progressPercent(
+  int paidPrice,
+  String goalPrice,
 ) {
-  // Increase cartQuantity by 1 and then multiply by itemPrice.
-  int total = ((cartQuantity++) * itemPrice);
-  return total;
+  // return percent of paidPrice against goalPrice.
+  final goalTotalAmount = num.parse(goalPrice);
+  double paidPercent;
+  if (goalTotalAmount == 0.0) {
+    paidPercent = 0.0;
+  } else {
+    paidPercent = (paidPrice / goalTotalAmount).clamp(0, 100) * 100;
+  }
+
+  return ("$paidPercent%");
 }
 
-int incrementCart(int incrementQuantity) {
-  // Increment incrementQuantity by 1.
-  return ++incrementQuantity;
+DateTime finalDate(DateTime initialDate) {
+  // return finalDate 30 days from initialDate.
+  return initialDate.isUtc
+      ? initialDate.add(Duration(days: 30))
+      : initialDate.add(Duration(days: 30)).toLocal();
 }
 
-int decrementCart(int decrementQuantity) {
-  // decrement decrementQuantity by 1.
-  return --decrementQuantity;
-}
-
-int addBalance(
-  int balance,
-  int price,
+int sumPaid(
+  String transCost,
+  int paidGoal,
 ) {
-  // add balance with price.
-  return balance + price;
+  // return sum of transCost and paidGoal.
+  print(transCost.toString());
+  print(paidGoal.toString());
+  var temp = int.parse(transCost) + paidGoal;
+  print(temp.toString());
+  return temp;
 }
 
-int reduceBalance(
-  int balance,
-  int price,
+int deffPaid(
+  String transCost,
+  int paidGoal,
 ) {
-  // substract price from balance.
-  balance = balance - price;
-  return balance;
+  // return diff of transCost and paidGoal.
+  print(transCost.toString());
+  print(paidGoal.toString());
+  var temp = paidGoal - int.parse(transCost);
+  print(temp.toString());
+  return temp;
+}
+
+bool minTrans(int amount) {
+  // Return true if amount is greater than of equal to 100000, else false.
+  return amount >= 100000;
+}
+
+int midPrice(int price) {
+  // return price multiply by 1.35.
+  return (price * 1.35).toInt();
+}
+
+int highPrice(int price) {
+  // return price multiply by 1.83.
+  return (price * 1.83).toInt();
 }

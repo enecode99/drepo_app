@@ -23,58 +23,58 @@ abstract class FlutterFlowTheme {
   Color textColor;
 
   TextStyle get title1 => GoogleFonts.getFont(
-        'Poppins',
-        color: Color(0xFF303030),
-        fontWeight: FontWeight.w600,
+        'Lato',
+        color: Color(0xFF26282D),
+        fontWeight: FontWeight.w500,
         fontSize: 24,
       );
   TextStyle get title2 => GoogleFonts.getFont(
-        'Poppins',
-        color: Color(0xFF303030),
+        'Open Sans',
+        color: secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22,
       );
   TextStyle get title3 => GoogleFonts.getFont(
-        'Poppins',
-        color: Color(0xFF303030),
+        'Open Sans',
+        color: secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 20,
       );
   TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Poppins',
-        color: Color(0xFF757575),
+        'Open Sans',
+        color: secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 18,
       );
   TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Poppins',
-        color: Color(0xFF616161),
-        fontWeight: FontWeight.normal,
+        'Open Sans',
+        color: secondaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 16,
       );
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Poppins',
-        color: Color(0xFF303030),
-        fontWeight: FontWeight.normal,
+        'Open Sans',
+        color: secondaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 14,
       );
   TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Poppins',
-        color: Color(0xFF424242),
-        fontWeight: FontWeight.normal,
+        'Open Sans',
+        color: secondaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 14,
       );
 }
 
 class LightModeTheme extends FlutterFlowTheme {
-  Color primaryColor = const Color(0xFF1E0A3D);
-  Color secondaryColor = const Color(0xFFA995BF);
-  Color tertiaryColor = const Color(0xFFFFFFFF);
-  Color alternate = const Color(0xFF39D2C0);
-  Color primaryBackground = const Color(0xFFF1F4F8);
-  Color secondaryBackground = const Color(0xFFFFFFFF);
-  Color primaryText = const Color(0xFF090F13);
-  Color secondaryText = const Color(0xFF95A1AC);
+  Color primaryColor = const Color(0xFF795AC9);
+  Color secondaryColor = const Color(0xFF795AC9);
+  Color tertiaryColor = const Color(0xFFD9DCE1);
+  Color alternate = const Color(0xFF795AC9);
+  Color primaryBackground = const Color(0xFFFFFFFF);
+  Color secondaryBackground = const Color(0xFFF1F4F8);
+  Color primaryText = const Color(0xFF57636C);
+  Color secondaryText = const Color(0xFF57636C);
 
   Color grayIcon = Color(0xFF95A1AC);
   Color gray200 = Color(0xFFDBE2E7);

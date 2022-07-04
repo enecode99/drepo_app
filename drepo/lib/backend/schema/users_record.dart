@@ -10,9 +10,6 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   static Serializer<UsersRecord> get serializer => _$usersRecordSerializer;
 
   @nullable
-  String get email;
-
-  @nullable
   @BuiltValueField(wireName: 'display_name')
   String get displayName;
 
@@ -32,96 +29,60 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   String get phoneNumber;
 
   @nullable
-  String get location;
+  @BuiltValueField(wireName: 'business_admin')
+  bool get businessAdmin;
 
   @nullable
-  @BuiltValueField(wireName: 'facebood_link')
-  String get faceboodLink;
+  String get email;
 
   @nullable
-  @BuiltValueField(wireName: 'Instagram_link')
-  String get instagramLink;
+  DocumentReference get house;
 
   @nullable
-  @BuiltValueField(wireName: 'user_rolls')
-  BuiltList<DocumentReference> get userRolls;
+  DocumentReference get transaction;
 
   @nullable
-  @BuiltValueField(wireName: 'user_posts')
-  BuiltList<DocumentReference> get userPosts;
+  @BuiltValueField(wireName: 'user_plan')
+  DocumentReference get userPlan;
 
   @nullable
-  @BuiltValueField(wireName: 'post_favorite')
-  BuiltList<DocumentReference> get postFavorite;
+  @BuiltValueField(wireName: 'plan_available')
+  bool get planAvailable;
 
   @nullable
-  @BuiltValueField(wireName: 'post_cart')
-  BuiltList<DocumentReference> get postCart;
+  bool get renovation;
 
   @nullable
-  @BuiltValueField(wireName: 'user_chats')
-  BuiltList<DocumentReference> get userChats;
+  @BuiltValueField(wireName: 'owner_admin')
+  bool get ownerAdmin;
 
   @nullable
-  @BuiltValueField(wireName: 'business_account')
-  bool get businessAccount;
+  DateTime get time;
 
   @nullable
-  @BuiltValueField(wireName: 'cover_photo')
-  String get coverPhoto;
+  @BuiltValueField(wireName: 'tip_info')
+  String get tipInfo;
 
   @nullable
-  @BuiltValueField(wireName: 'wallet_amount')
-  int get walletAmount;
-
-  @nullable
-  int get cartPrice;
-
-  @nullable
-  int get cartQuantity;
-
-  @nullable
-  @BuiltValueField(wireName: 'user_following')
-  BuiltList<DocumentReference> get userFollowing;
-
-  @nullable
-  @BuiltValueField(wireName: 'user_followers')
-  BuiltList<DocumentReference> get userFollowers;
-
-  @nullable
-  String get password;
-
-  @nullable
-  @BuiltValueField(wireName: 'referral_code')
-  String get referralCode;
+  @BuiltValueField(wireName: 'house_standard')
+  String get houseStandard;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(UsersRecordBuilder builder) => builder
-    ..email = ''
     ..displayName = ''
     ..photoUrl = ''
     ..uid = ''
     ..phoneNumber = ''
-    ..location = ''
-    ..faceboodLink = ''
-    ..instagramLink = ''
-    ..userRolls = ListBuilder()
-    ..userPosts = ListBuilder()
-    ..postFavorite = ListBuilder()
-    ..postCart = ListBuilder()
-    ..userChats = ListBuilder()
-    ..businessAccount = false
-    ..coverPhoto = ''
-    ..walletAmount = 0
-    ..cartPrice = 0
-    ..cartQuantity = 0
-    ..userFollowing = ListBuilder()
-    ..userFollowers = ListBuilder()
-    ..password = ''
-    ..referralCode = '';
+    ..businessAdmin = false
+    ..email = ''
+    ..planAvailable = false
+    ..renovation = false
+    ..ownerAdmin = false
+    ..tipInfo = ''
+    ..houseStandard = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -145,46 +106,39 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
 }
 
 Map<String, dynamic> createUsersRecordData({
-  String email,
   String displayName,
   String photoUrl,
   String uid,
   DateTime createdTime,
   String phoneNumber,
-  String location,
-  String faceboodLink,
-  String instagramLink,
-  bool businessAccount,
-  String coverPhoto,
-  int walletAmount,
-  int cartPrice,
-  int cartQuantity,
-  String password,
-  String referralCode,
+  bool businessAdmin,
+  String email,
+  DocumentReference house,
+  DocumentReference transaction,
+  DocumentReference userPlan,
+  bool planAvailable,
+  bool renovation,
+  bool ownerAdmin,
+  DateTime time,
+  String tipInfo,
+  String houseStandard,
 }) =>
     serializers.toFirestore(
         UsersRecord.serializer,
         UsersRecord((u) => u
-          ..email = email
           ..displayName = displayName
           ..photoUrl = photoUrl
           ..uid = uid
           ..createdTime = createdTime
           ..phoneNumber = phoneNumber
-          ..location = location
-          ..faceboodLink = faceboodLink
-          ..instagramLink = instagramLink
-          ..userRolls = null
-          ..userPosts = null
-          ..postFavorite = null
-          ..postCart = null
-          ..userChats = null
-          ..businessAccount = businessAccount
-          ..coverPhoto = coverPhoto
-          ..walletAmount = walletAmount
-          ..cartPrice = cartPrice
-          ..cartQuantity = cartQuantity
-          ..userFollowing = null
-          ..userFollowers = null
-          ..password = password
-          ..referralCode = referralCode));
+          ..businessAdmin = businessAdmin
+          ..email = email
+          ..house = house
+          ..transaction = transaction
+          ..userPlan = userPlan
+          ..planAvailable = planAvailable
+          ..renovation = renovation
+          ..ownerAdmin = ownerAdmin
+          ..time = time
+          ..tipInfo = tipInfo
+          ..houseStandard = houseStandard));

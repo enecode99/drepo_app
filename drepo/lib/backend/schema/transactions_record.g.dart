@@ -21,52 +21,10 @@ class _$TransactionsRecordSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     Object value;
-    value = object.transactionId;
+    value = object.transactionDate;
     if (value != null) {
       result
-        ..add('transaction_id')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.transactionAmount;
-    if (value != null) {
-      result
-        ..add('transaction_amount')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.transactionCategory;
-    if (value != null) {
-      result
-        ..add('transaction_category')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.transactionOrder;
-    if (value != null) {
-      result
-        ..add('transaction_order')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                DocumentReference, const [const FullType(Object)])));
-    }
-    value = object.referralCode;
-    if (value != null) {
-      result
-        ..add('referral_code')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.transactionComplete;
-    if (value != null) {
-      result
-        ..add('transaction_complete')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
-    value = object.transactionTime;
-    if (value != null) {
-      result
-        ..add('transaction_time')
+        ..add('transaction_date')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
@@ -77,6 +35,41 @@ class _$TransactionsRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 DocumentReference, const [const FullType(Object)])));
+    }
+    value = object.transactionPrice;
+    if (value != null) {
+      result
+        ..add('transaction_price')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.completedTransaction;
+    if (value != null) {
+      result
+        ..add('completed_transaction')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.transactionPhone;
+    if (value != null) {
+      result
+        ..add('transaction_phone')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.mobileMoney;
+    if (value != null) {
+      result
+        ..add('mobile_money')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.refund;
+    if (value != null) {
+      result
+        ..add('refund')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.reference;
     if (value != null) {
@@ -101,34 +94,8 @@ class _$TransactionsRecordSerializer
       iterator.moveNext();
       final Object value = iterator.current;
       switch (key) {
-        case 'transaction_id':
-          result.transactionId = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'transaction_amount':
-          result.transactionAmount = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
-          break;
-        case 'transaction_category':
-          result.transactionCategory = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'transaction_order':
-          result.transactionOrder = serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      DocumentReference, const [const FullType(Object)]))
-              as DocumentReference<Object>;
-          break;
-        case 'referral_code':
-          result.referralCode = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'transaction_complete':
-          result.transactionComplete = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
-          break;
-        case 'transaction_time':
-          result.transactionTime = serializers.deserialize(value,
+        case 'transaction_date':
+          result.transactionDate = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime;
           break;
         case 'transaction_user':
@@ -136,6 +103,26 @@ class _$TransactionsRecordSerializer
                   specifiedType: const FullType(
                       DocumentReference, const [const FullType(Object)]))
               as DocumentReference<Object>;
+          break;
+        case 'transaction_price':
+          result.transactionPrice = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'completed_transaction':
+          result.completedTransaction = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
+        case 'transaction_phone':
+          result.transactionPhone = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'mobile_money':
+          result.mobileMoney = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'refund':
+          result.refund = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
           break;
         case 'Document__Reference__Field':
           result.reference = serializers.deserialize(value,
@@ -152,21 +139,19 @@ class _$TransactionsRecordSerializer
 
 class _$TransactionsRecord extends TransactionsRecord {
   @override
-  final String transactionId;
-  @override
-  final int transactionAmount;
-  @override
-  final String transactionCategory;
-  @override
-  final DocumentReference<Object> transactionOrder;
-  @override
-  final String referralCode;
-  @override
-  final bool transactionComplete;
-  @override
-  final DateTime transactionTime;
+  final DateTime transactionDate;
   @override
   final DocumentReference<Object> transactionUser;
+  @override
+  final String transactionPrice;
+  @override
+  final bool completedTransaction;
+  @override
+  final String transactionPhone;
+  @override
+  final String mobileMoney;
+  @override
+  final bool refund;
   @override
   final DocumentReference<Object> reference;
 
@@ -175,14 +160,13 @@ class _$TransactionsRecord extends TransactionsRecord {
       (new TransactionsRecordBuilder()..update(updates)).build();
 
   _$TransactionsRecord._(
-      {this.transactionId,
-      this.transactionAmount,
-      this.transactionCategory,
-      this.transactionOrder,
-      this.referralCode,
-      this.transactionComplete,
-      this.transactionTime,
+      {this.transactionDate,
       this.transactionUser,
+      this.transactionPrice,
+      this.completedTransaction,
+      this.transactionPhone,
+      this.mobileMoney,
+      this.refund,
       this.reference})
       : super._();
 
@@ -199,14 +183,13 @@ class _$TransactionsRecord extends TransactionsRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is TransactionsRecord &&
-        transactionId == other.transactionId &&
-        transactionAmount == other.transactionAmount &&
-        transactionCategory == other.transactionCategory &&
-        transactionOrder == other.transactionOrder &&
-        referralCode == other.referralCode &&
-        transactionComplete == other.transactionComplete &&
-        transactionTime == other.transactionTime &&
+        transactionDate == other.transactionDate &&
         transactionUser == other.transactionUser &&
+        transactionPrice == other.transactionPrice &&
+        completedTransaction == other.completedTransaction &&
+        transactionPhone == other.transactionPhone &&
+        mobileMoney == other.mobileMoney &&
+        refund == other.refund &&
         reference == other.reference;
   }
 
@@ -218,29 +201,26 @@ class _$TransactionsRecord extends TransactionsRecord {
                 $jc(
                     $jc(
                         $jc(
-                            $jc(
-                                $jc($jc(0, transactionId.hashCode),
-                                    transactionAmount.hashCode),
-                                transactionCategory.hashCode),
-                            transactionOrder.hashCode),
-                        referralCode.hashCode),
-                    transactionComplete.hashCode),
-                transactionTime.hashCode),
-            transactionUser.hashCode),
+                            $jc($jc(0, transactionDate.hashCode),
+                                transactionUser.hashCode),
+                            transactionPrice.hashCode),
+                        completedTransaction.hashCode),
+                    transactionPhone.hashCode),
+                mobileMoney.hashCode),
+            refund.hashCode),
         reference.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('TransactionsRecord')
-          ..add('transactionId', transactionId)
-          ..add('transactionAmount', transactionAmount)
-          ..add('transactionCategory', transactionCategory)
-          ..add('transactionOrder', transactionOrder)
-          ..add('referralCode', referralCode)
-          ..add('transactionComplete', transactionComplete)
-          ..add('transactionTime', transactionTime)
+          ..add('transactionDate', transactionDate)
           ..add('transactionUser', transactionUser)
+          ..add('transactionPrice', transactionPrice)
+          ..add('completedTransaction', completedTransaction)
+          ..add('transactionPhone', transactionPhone)
+          ..add('mobileMoney', mobileMoney)
+          ..add('refund', refund)
           ..add('reference', reference))
         .toString();
   }
@@ -250,44 +230,38 @@ class TransactionsRecordBuilder
     implements Builder<TransactionsRecord, TransactionsRecordBuilder> {
   _$TransactionsRecord _$v;
 
-  String _transactionId;
-  String get transactionId => _$this._transactionId;
-  set transactionId(String transactionId) =>
-      _$this._transactionId = transactionId;
-
-  int _transactionAmount;
-  int get transactionAmount => _$this._transactionAmount;
-  set transactionAmount(int transactionAmount) =>
-      _$this._transactionAmount = transactionAmount;
-
-  String _transactionCategory;
-  String get transactionCategory => _$this._transactionCategory;
-  set transactionCategory(String transactionCategory) =>
-      _$this._transactionCategory = transactionCategory;
-
-  DocumentReference<Object> _transactionOrder;
-  DocumentReference<Object> get transactionOrder => _$this._transactionOrder;
-  set transactionOrder(DocumentReference<Object> transactionOrder) =>
-      _$this._transactionOrder = transactionOrder;
-
-  String _referralCode;
-  String get referralCode => _$this._referralCode;
-  set referralCode(String referralCode) => _$this._referralCode = referralCode;
-
-  bool _transactionComplete;
-  bool get transactionComplete => _$this._transactionComplete;
-  set transactionComplete(bool transactionComplete) =>
-      _$this._transactionComplete = transactionComplete;
-
-  DateTime _transactionTime;
-  DateTime get transactionTime => _$this._transactionTime;
-  set transactionTime(DateTime transactionTime) =>
-      _$this._transactionTime = transactionTime;
+  DateTime _transactionDate;
+  DateTime get transactionDate => _$this._transactionDate;
+  set transactionDate(DateTime transactionDate) =>
+      _$this._transactionDate = transactionDate;
 
   DocumentReference<Object> _transactionUser;
   DocumentReference<Object> get transactionUser => _$this._transactionUser;
   set transactionUser(DocumentReference<Object> transactionUser) =>
       _$this._transactionUser = transactionUser;
+
+  String _transactionPrice;
+  String get transactionPrice => _$this._transactionPrice;
+  set transactionPrice(String transactionPrice) =>
+      _$this._transactionPrice = transactionPrice;
+
+  bool _completedTransaction;
+  bool get completedTransaction => _$this._completedTransaction;
+  set completedTransaction(bool completedTransaction) =>
+      _$this._completedTransaction = completedTransaction;
+
+  String _transactionPhone;
+  String get transactionPhone => _$this._transactionPhone;
+  set transactionPhone(String transactionPhone) =>
+      _$this._transactionPhone = transactionPhone;
+
+  String _mobileMoney;
+  String get mobileMoney => _$this._mobileMoney;
+  set mobileMoney(String mobileMoney) => _$this._mobileMoney = mobileMoney;
+
+  bool _refund;
+  bool get refund => _$this._refund;
+  set refund(bool refund) => _$this._refund = refund;
 
   DocumentReference<Object> _reference;
   DocumentReference<Object> get reference => _$this._reference;
@@ -301,14 +275,13 @@ class TransactionsRecordBuilder
   TransactionsRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _transactionId = $v.transactionId;
-      _transactionAmount = $v.transactionAmount;
-      _transactionCategory = $v.transactionCategory;
-      _transactionOrder = $v.transactionOrder;
-      _referralCode = $v.referralCode;
-      _transactionComplete = $v.transactionComplete;
-      _transactionTime = $v.transactionTime;
+      _transactionDate = $v.transactionDate;
       _transactionUser = $v.transactionUser;
+      _transactionPrice = $v.transactionPrice;
+      _completedTransaction = $v.completedTransaction;
+      _transactionPhone = $v.transactionPhone;
+      _mobileMoney = $v.mobileMoney;
+      _refund = $v.refund;
       _reference = $v.reference;
       _$v = null;
     }
@@ -330,14 +303,13 @@ class TransactionsRecordBuilder
   _$TransactionsRecord build() {
     final _$result = _$v ??
         new _$TransactionsRecord._(
-            transactionId: transactionId,
-            transactionAmount: transactionAmount,
-            transactionCategory: transactionCategory,
-            transactionOrder: transactionOrder,
-            referralCode: referralCode,
-            transactionComplete: transactionComplete,
-            transactionTime: transactionTime,
+            transactionDate: transactionDate,
             transactionUser: transactionUser,
+            transactionPrice: transactionPrice,
+            completedTransaction: completedTransaction,
+            transactionPhone: transactionPhone,
+            mobileMoney: mobileMoney,
+            refund: refund,
             reference: reference);
     replace(_$result);
     return _$result;

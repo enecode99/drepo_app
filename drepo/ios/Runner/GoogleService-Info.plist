@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>389507445034-vhpdj3cvhld1lkd6f3vprl9otp2d6e1l.apps.googleusercontent.com</string>
+	<string>934618294752-17vk064jvfjvc24s13g0rmjdjg17ld43.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.389507445034-vhpdj3cvhld1lkd6f3vprl9otp2d6e1l</string>
+	<string>com.googleusercontent.apps.934618294752-17vk064jvfjvc24s13g0rmjdjg17ld43</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>389507445034-6ntg52coqlb7ldgdcqs96nt8afdhki2o.apps.googleusercontent.com</string>
+	<string>934618294752-dqjbtglhs884huporm7uogg4o76vaj2u.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyClwDsP_jk1IExo3OLAwfd9w-aCUr3GRik</string>
+	<string>AIzaSyDbziV9NiNhm4IJWe5G5WDr8jjHOk5ru4M</string>
 	<key>GCM_SENDER_ID</key>
-	<string>389507445034</string>
+	<string>934618294752</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.drepocompany.drepo</string>
+	<string>com.increatetech.dala</string>
 	<key>PROJECT_ID</key>
-	<string>drepoapp</string>
+	<string>jengaleo-bdc95</string>
 	<key>STORAGE_BUCKET</key>
-	<string>drepoapp.appspot.com</string>
+	<string>jengaleo-bdc95.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:389507445034:ios:e9820630a61c7f69482e53</string>
+	<string>1:934618294752:ios:f8c4189808819851aca385</string>
 </dict>
 </plist>

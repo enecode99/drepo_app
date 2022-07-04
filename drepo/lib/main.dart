@@ -8,6 +8,7 @@ import 'auth/auth_util.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'index.dart';
 
@@ -33,8 +34,8 @@ class _MyAppState extends State<MyApp> {
   Locale _locale;
   ThemeMode _themeMode = ThemeMode.system;
 
-  Stream<DrepoFirebaseUser> userStream;
-  DrepoFirebaseUser initialUser;
+  Stream<DalaFirebaseUser> userStream;
+  DalaFirebaseUser initialUser;
   bool displaySplashImage = true;
 
   final authUserSub = authenticatedUserStream.listen((_) {});
@@ -42,7 +43,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    userStream = drepoFirebaseUserStream()
+    userStream = dalaFirebaseUserStream()
       ..listen((user) => initialUser ?? setState(() => initialUser = user));
     Future.delayed(
       Duration(seconds: 1),
@@ -65,7 +66,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Drepo',
+      title: 'Dala',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
@@ -74,17 +75,17 @@ class _MyAppState extends State<MyApp> {
       ],
       locale: _locale,
       supportedLocales: const [
-        Locale('en', ''),
         Locale('sw', ''),
+        Locale('en', ''),
       ],
       theme: ThemeData(brightness: Brightness.light),
       themeMode: _themeMode,
       home: initialUser == null || displaySplashImage
           ? Container(
-              color: FlutterFlowTheme.of(context).tertiaryColor,
+              color: FlutterFlowTheme.of(context).primaryColor,
               child: Builder(
                 builder: (context) => Image.asset(
-                  'assets/images/WhatsApp_Image_2021-12-09_at_11.20.36_AM.jpeg',
+                  'assets/images/Dala.png',
                   fit: BoxFit.contain,
                 ),
               ),
@@ -107,7 +108,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'Explore';
+  String _currentPage = 'HomePage';
 
   @override
   void initState() {
@@ -118,9 +119,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Home': HomeWidget(),
-      'Explore': ExploreWidget(),
-      'ProfilePage': ProfilePageWidget(),
+      'HomePage': HomePageWidget(),
+      'MyHome': MyHomeWidget(),
+      'MyAccountPage': MyAccountPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -128,9 +129,9 @@ class _NavBarPageState extends State<NavBarPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (i) => setState(() => _currentPage = tabs.keys.toList()[i]),
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
-        selectedItemColor: FlutterFlowTheme.of(context).secondaryColor,
-        unselectedItemColor: FlutterFlowTheme.of(context).tertiaryColor,
+        backgroundColor: Colors.white,
+        selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
+        unselectedItemColor: Color(0x8A000000),
         showSelectedLabels: true,
         showUnselectedLabels: true,
         type: BottomNavigationBarType.fixed,
@@ -140,36 +141,28 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.home_outlined,
               size: 24,
             ),
-            activeIcon: Icon(
-              Icons.home,
-              size: 24,
-            ),
             label: FFLocalizations.of(context).getText(
-              'pso030v3' /* Home */,
+              'ys612suo' /* Nyumbani */,
             ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.search,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.search,
+              Icons.account_balance,
               size: 24,
             ),
             label: FFLocalizations.of(context).getText(
-              'io8eig88' /* Explore */,
+              'd6ifbl02' /* Michoro Yangu */,
             ),
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person,
-              size: 30,
+              Icons.account_circle,
+              size: 24,
             ),
             label: FFLocalizations.of(context).getText(
-              '15l64uel' /* Profile */,
+              'zqgj7kro' /* Akaunti */,
             ),
             tooltip: '',
           )

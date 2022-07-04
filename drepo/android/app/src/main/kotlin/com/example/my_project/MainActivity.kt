@@ -1,4 +1,4 @@
-package com.drepocompany.drepo
+package com.increatetech.dala
 
 import io.flutter.embedding.android.FlutterActivity
 

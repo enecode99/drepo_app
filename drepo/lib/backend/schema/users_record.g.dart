@@ -19,13 +19,6 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[];
     Object value;
-    value = object.email;
-    if (value != null) {
-      result
-        ..add('email')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.displayName;
     if (value != null) {
       result
@@ -61,133 +54,83 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.location;
+    value = object.businessAdmin;
     if (value != null) {
       result
-        ..add('location')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.faceboodLink;
-    if (value != null) {
-      result
-        ..add('facebood_link')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.instagramLink;
-    if (value != null) {
-      result
-        ..add('Instagram_link')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.userRolls;
-    if (value != null) {
-      result
-        ..add('user_rolls')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(DocumentReference, const [const FullType(Object)])
-            ])));
-    }
-    value = object.userPosts;
-    if (value != null) {
-      result
-        ..add('user_posts')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(DocumentReference, const [const FullType(Object)])
-            ])));
-    }
-    value = object.postFavorite;
-    if (value != null) {
-      result
-        ..add('post_favorite')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(DocumentReference, const [const FullType(Object)])
-            ])));
-    }
-    value = object.postCart;
-    if (value != null) {
-      result
-        ..add('post_cart')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(DocumentReference, const [const FullType(Object)])
-            ])));
-    }
-    value = object.userChats;
-    if (value != null) {
-      result
-        ..add('user_chats')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(DocumentReference, const [const FullType(Object)])
-            ])));
-    }
-    value = object.businessAccount;
-    if (value != null) {
-      result
-        ..add('business_account')
+        ..add('business_admin')
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
-    value = object.coverPhoto;
+    value = object.email;
     if (value != null) {
       result
-        ..add('cover_photo')
+        ..add('email')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.walletAmount;
+    value = object.house;
     if (value != null) {
       result
-        ..add('wallet_amount')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.cartPrice;
-    if (value != null) {
-      result
-        ..add('cartPrice')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.cartQuantity;
-    if (value != null) {
-      result
-        ..add('cartQuantity')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
-    value = object.userFollowing;
-    if (value != null) {
-      result
-        ..add('user_following')
+        ..add('house')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(DocumentReference, const [const FullType(Object)])
-            ])));
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType(Object)])));
     }
-    value = object.userFollowers;
+    value = object.transaction;
     if (value != null) {
       result
-        ..add('user_followers')
+        ..add('transaction')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType(DocumentReference, const [const FullType(Object)])
-            ])));
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType(Object)])));
     }
-    value = object.password;
+    value = object.userPlan;
     if (value != null) {
       result
-        ..add('password')
+        ..add('user_plan')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType(Object)])));
+    }
+    value = object.planAvailable;
+    if (value != null) {
+      result
+        ..add('plan_available')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.renovation;
+    if (value != null) {
+      result
+        ..add('renovation')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.ownerAdmin;
+    if (value != null) {
+      result
+        ..add('owner_admin')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.time;
+    if (value != null) {
+      result
+        ..add('time')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.tipInfo;
+    if (value != null) {
+      result
+        ..add('tip_info')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.referralCode;
+    value = object.houseStandard;
     if (value != null) {
       result
-        ..add('referral_code')
+        ..add('house_standard')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -213,10 +156,6 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
       iterator.moveNext();
       final Object value = iterator.current;
       switch (key) {
-        case 'email':
-          result.email = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
         case 'display_name':
           result.displayName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -237,93 +176,54 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.phoneNumber = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'location':
-          result.location = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'facebood_link':
-          result.faceboodLink = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'Instagram_link':
-          result.instagramLink = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'user_rolls':
-          result.userRolls.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType(Object)])
-              ])) as BuiltList<Object>);
-          break;
-        case 'user_posts':
-          result.userPosts.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType(Object)])
-              ])) as BuiltList<Object>);
-          break;
-        case 'post_favorite':
-          result.postFavorite.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType(Object)])
-              ])) as BuiltList<Object>);
-          break;
-        case 'post_cart':
-          result.postCart.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType(Object)])
-              ])) as BuiltList<Object>);
-          break;
-        case 'user_chats':
-          result.userChats.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType(Object)])
-              ])) as BuiltList<Object>);
-          break;
-        case 'business_account':
-          result.businessAccount = serializers.deserialize(value,
+        case 'business_admin':
+          result.businessAdmin = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'cover_photo':
-          result.coverPhoto = serializers.deserialize(value,
+        case 'email':
+          result.email = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'wallet_amount':
-          result.walletAmount = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+        case 'house':
+          result.house = serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      DocumentReference, const [const FullType(Object)]))
+              as DocumentReference<Object>;
           break;
-        case 'cartPrice':
-          result.cartPrice = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+        case 'transaction':
+          result.transaction = serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      DocumentReference, const [const FullType(Object)]))
+              as DocumentReference<Object>;
           break;
-        case 'cartQuantity':
-          result.cartQuantity = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+        case 'user_plan':
+          result.userPlan = serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      DocumentReference, const [const FullType(Object)]))
+              as DocumentReference<Object>;
           break;
-        case 'user_following':
-          result.userFollowing.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType(Object)])
-              ])) as BuiltList<Object>);
+        case 'plan_available':
+          result.planAvailable = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
           break;
-        case 'user_followers':
-          result.userFollowers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(
-                    DocumentReference, const [const FullType(Object)])
-              ])) as BuiltList<Object>);
+        case 'renovation':
+          result.renovation = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
           break;
-        case 'password':
-          result.password = serializers.deserialize(value,
+        case 'owner_admin':
+          result.ownerAdmin = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
+        case 'time':
+          result.time = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime;
+          break;
+        case 'tip_info':
+          result.tipInfo = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'referral_code':
-          result.referralCode = serializers.deserialize(value,
+        case 'house_standard':
+          result.houseStandard = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'Document__Reference__Field':
@@ -341,8 +241,6 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
 
 class _$UsersRecord extends UsersRecord {
   @override
-  final String email;
-  @override
   final String displayName;
   @override
   final String photoUrl;
@@ -353,39 +251,27 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String phoneNumber;
   @override
-  final String location;
+  final bool businessAdmin;
   @override
-  final String faceboodLink;
+  final String email;
   @override
-  final String instagramLink;
+  final DocumentReference<Object> house;
   @override
-  final BuiltList<DocumentReference<Object>> userRolls;
+  final DocumentReference<Object> transaction;
   @override
-  final BuiltList<DocumentReference<Object>> userPosts;
+  final DocumentReference<Object> userPlan;
   @override
-  final BuiltList<DocumentReference<Object>> postFavorite;
+  final bool planAvailable;
   @override
-  final BuiltList<DocumentReference<Object>> postCart;
+  final bool renovation;
   @override
-  final BuiltList<DocumentReference<Object>> userChats;
+  final bool ownerAdmin;
   @override
-  final bool businessAccount;
+  final DateTime time;
   @override
-  final String coverPhoto;
+  final String tipInfo;
   @override
-  final int walletAmount;
-  @override
-  final int cartPrice;
-  @override
-  final int cartQuantity;
-  @override
-  final BuiltList<DocumentReference<Object>> userFollowing;
-  @override
-  final BuiltList<DocumentReference<Object>> userFollowers;
-  @override
-  final String password;
-  @override
-  final String referralCode;
+  final String houseStandard;
   @override
   final DocumentReference<Object> reference;
 
@@ -393,29 +279,22 @@ class _$UsersRecord extends UsersRecord {
       (new UsersRecordBuilder()..update(updates)).build();
 
   _$UsersRecord._(
-      {this.email,
-      this.displayName,
+      {this.displayName,
       this.photoUrl,
       this.uid,
       this.createdTime,
       this.phoneNumber,
-      this.location,
-      this.faceboodLink,
-      this.instagramLink,
-      this.userRolls,
-      this.userPosts,
-      this.postFavorite,
-      this.postCart,
-      this.userChats,
-      this.businessAccount,
-      this.coverPhoto,
-      this.walletAmount,
-      this.cartPrice,
-      this.cartQuantity,
-      this.userFollowing,
-      this.userFollowers,
-      this.password,
-      this.referralCode,
+      this.businessAdmin,
+      this.email,
+      this.house,
+      this.transaction,
+      this.userPlan,
+      this.planAvailable,
+      this.renovation,
+      this.ownerAdmin,
+      this.time,
+      this.tipInfo,
+      this.houseStandard,
       this.reference})
       : super._();
 
@@ -430,29 +309,22 @@ class _$UsersRecord extends UsersRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is UsersRecord &&
-        email == other.email &&
         displayName == other.displayName &&
         photoUrl == other.photoUrl &&
         uid == other.uid &&
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
-        location == other.location &&
-        faceboodLink == other.faceboodLink &&
-        instagramLink == other.instagramLink &&
-        userRolls == other.userRolls &&
-        userPosts == other.userPosts &&
-        postFavorite == other.postFavorite &&
-        postCart == other.postCart &&
-        userChats == other.userChats &&
-        businessAccount == other.businessAccount &&
-        coverPhoto == other.coverPhoto &&
-        walletAmount == other.walletAmount &&
-        cartPrice == other.cartPrice &&
-        cartQuantity == other.cartQuantity &&
-        userFollowing == other.userFollowing &&
-        userFollowers == other.userFollowers &&
-        password == other.password &&
-        referralCode == other.referralCode &&
+        businessAdmin == other.businessAdmin &&
+        email == other.email &&
+        house == other.house &&
+        transaction == other.transaction &&
+        userPlan == other.userPlan &&
+        planAvailable == other.planAvailable &&
+        renovation == other.renovation &&
+        ownerAdmin == other.ownerAdmin &&
+        time == other.time &&
+        tipInfo == other.tipInfo &&
+        houseStandard == other.houseStandard &&
         reference == other.reference;
   }
 
@@ -475,55 +347,48 @@ class _$UsersRecord extends UsersRecord {
                                                             $jc(
                                                                 $jc(
                                                                     $jc(
-                                                                        $jc(
-                                                                            $jc($jc($jc($jc($jc($jc(0, email.hashCode), displayName.hashCode), photoUrl.hashCode), uid.hashCode), createdTime.hashCode),
-                                                                                phoneNumber.hashCode),
-                                                                            location.hashCode),
-                                                                        faceboodLink.hashCode),
-                                                                    instagramLink.hashCode),
-                                                                userRolls.hashCode),
-                                                            userPosts.hashCode),
-                                                        postFavorite.hashCode),
-                                                    postCart.hashCode),
-                                                userChats.hashCode),
-                                            businessAccount.hashCode),
-                                        coverPhoto.hashCode),
-                                    walletAmount.hashCode),
-                                cartPrice.hashCode),
-                            cartQuantity.hashCode),
-                        userFollowing.hashCode),
-                    userFollowers.hashCode),
-                password.hashCode),
-            referralCode.hashCode),
+                                                                        0,
+                                                                        displayName
+                                                                            .hashCode),
+                                                                    photoUrl
+                                                                        .hashCode),
+                                                                uid.hashCode),
+                                                            createdTime
+                                                                .hashCode),
+                                                        phoneNumber.hashCode),
+                                                    businessAdmin.hashCode),
+                                                email.hashCode),
+                                            house.hashCode),
+                                        transaction.hashCode),
+                                    userPlan.hashCode),
+                                planAvailable.hashCode),
+                            renovation.hashCode),
+                        ownerAdmin.hashCode),
+                    time.hashCode),
+                tipInfo.hashCode),
+            houseStandard.hashCode),
         reference.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('UsersRecord')
-          ..add('email', email)
           ..add('displayName', displayName)
           ..add('photoUrl', photoUrl)
           ..add('uid', uid)
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
-          ..add('location', location)
-          ..add('faceboodLink', faceboodLink)
-          ..add('instagramLink', instagramLink)
-          ..add('userRolls', userRolls)
-          ..add('userPosts', userPosts)
-          ..add('postFavorite', postFavorite)
-          ..add('postCart', postCart)
-          ..add('userChats', userChats)
-          ..add('businessAccount', businessAccount)
-          ..add('coverPhoto', coverPhoto)
-          ..add('walletAmount', walletAmount)
-          ..add('cartPrice', cartPrice)
-          ..add('cartQuantity', cartQuantity)
-          ..add('userFollowing', userFollowing)
-          ..add('userFollowers', userFollowers)
-          ..add('password', password)
-          ..add('referralCode', referralCode)
+          ..add('businessAdmin', businessAdmin)
+          ..add('email', email)
+          ..add('house', house)
+          ..add('transaction', transaction)
+          ..add('userPlan', userPlan)
+          ..add('planAvailable', planAvailable)
+          ..add('renovation', renovation)
+          ..add('ownerAdmin', ownerAdmin)
+          ..add('time', time)
+          ..add('tipInfo', tipInfo)
+          ..add('houseStandard', houseStandard)
           ..add('reference', reference))
         .toString();
   }
@@ -531,10 +396,6 @@ class _$UsersRecord extends UsersRecord {
 
 class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   _$UsersRecord _$v;
-
-  String _email;
-  String get email => _$this._email;
-  set email(String email) => _$this._email = email;
 
   String _displayName;
   String get displayName => _$this._displayName;
@@ -556,89 +417,54 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   String get phoneNumber => _$this._phoneNumber;
   set phoneNumber(String phoneNumber) => _$this._phoneNumber = phoneNumber;
 
-  String _location;
-  String get location => _$this._location;
-  set location(String location) => _$this._location = location;
+  bool _businessAdmin;
+  bool get businessAdmin => _$this._businessAdmin;
+  set businessAdmin(bool businessAdmin) =>
+      _$this._businessAdmin = businessAdmin;
 
-  String _faceboodLink;
-  String get faceboodLink => _$this._faceboodLink;
-  set faceboodLink(String faceboodLink) => _$this._faceboodLink = faceboodLink;
+  String _email;
+  String get email => _$this._email;
+  set email(String email) => _$this._email = email;
 
-  String _instagramLink;
-  String get instagramLink => _$this._instagramLink;
-  set instagramLink(String instagramLink) =>
-      _$this._instagramLink = instagramLink;
+  DocumentReference<Object> _house;
+  DocumentReference<Object> get house => _$this._house;
+  set house(DocumentReference<Object> house) => _$this._house = house;
 
-  ListBuilder<DocumentReference<Object>> _userRolls;
-  ListBuilder<DocumentReference<Object>> get userRolls =>
-      _$this._userRolls ??= new ListBuilder<DocumentReference<Object>>();
-  set userRolls(ListBuilder<DocumentReference<Object>> userRolls) =>
-      _$this._userRolls = userRolls;
+  DocumentReference<Object> _transaction;
+  DocumentReference<Object> get transaction => _$this._transaction;
+  set transaction(DocumentReference<Object> transaction) =>
+      _$this._transaction = transaction;
 
-  ListBuilder<DocumentReference<Object>> _userPosts;
-  ListBuilder<DocumentReference<Object>> get userPosts =>
-      _$this._userPosts ??= new ListBuilder<DocumentReference<Object>>();
-  set userPosts(ListBuilder<DocumentReference<Object>> userPosts) =>
-      _$this._userPosts = userPosts;
+  DocumentReference<Object> _userPlan;
+  DocumentReference<Object> get userPlan => _$this._userPlan;
+  set userPlan(DocumentReference<Object> userPlan) =>
+      _$this._userPlan = userPlan;
 
-  ListBuilder<DocumentReference<Object>> _postFavorite;
-  ListBuilder<DocumentReference<Object>> get postFavorite =>
-      _$this._postFavorite ??= new ListBuilder<DocumentReference<Object>>();
-  set postFavorite(ListBuilder<DocumentReference<Object>> postFavorite) =>
-      _$this._postFavorite = postFavorite;
+  bool _planAvailable;
+  bool get planAvailable => _$this._planAvailable;
+  set planAvailable(bool planAvailable) =>
+      _$this._planAvailable = planAvailable;
 
-  ListBuilder<DocumentReference<Object>> _postCart;
-  ListBuilder<DocumentReference<Object>> get postCart =>
-      _$this._postCart ??= new ListBuilder<DocumentReference<Object>>();
-  set postCart(ListBuilder<DocumentReference<Object>> postCart) =>
-      _$this._postCart = postCart;
+  bool _renovation;
+  bool get renovation => _$this._renovation;
+  set renovation(bool renovation) => _$this._renovation = renovation;
 
-  ListBuilder<DocumentReference<Object>> _userChats;
-  ListBuilder<DocumentReference<Object>> get userChats =>
-      _$this._userChats ??= new ListBuilder<DocumentReference<Object>>();
-  set userChats(ListBuilder<DocumentReference<Object>> userChats) =>
-      _$this._userChats = userChats;
+  bool _ownerAdmin;
+  bool get ownerAdmin => _$this._ownerAdmin;
+  set ownerAdmin(bool ownerAdmin) => _$this._ownerAdmin = ownerAdmin;
 
-  bool _businessAccount;
-  bool get businessAccount => _$this._businessAccount;
-  set businessAccount(bool businessAccount) =>
-      _$this._businessAccount = businessAccount;
+  DateTime _time;
+  DateTime get time => _$this._time;
+  set time(DateTime time) => _$this._time = time;
 
-  String _coverPhoto;
-  String get coverPhoto => _$this._coverPhoto;
-  set coverPhoto(String coverPhoto) => _$this._coverPhoto = coverPhoto;
+  String _tipInfo;
+  String get tipInfo => _$this._tipInfo;
+  set tipInfo(String tipInfo) => _$this._tipInfo = tipInfo;
 
-  int _walletAmount;
-  int get walletAmount => _$this._walletAmount;
-  set walletAmount(int walletAmount) => _$this._walletAmount = walletAmount;
-
-  int _cartPrice;
-  int get cartPrice => _$this._cartPrice;
-  set cartPrice(int cartPrice) => _$this._cartPrice = cartPrice;
-
-  int _cartQuantity;
-  int get cartQuantity => _$this._cartQuantity;
-  set cartQuantity(int cartQuantity) => _$this._cartQuantity = cartQuantity;
-
-  ListBuilder<DocumentReference<Object>> _userFollowing;
-  ListBuilder<DocumentReference<Object>> get userFollowing =>
-      _$this._userFollowing ??= new ListBuilder<DocumentReference<Object>>();
-  set userFollowing(ListBuilder<DocumentReference<Object>> userFollowing) =>
-      _$this._userFollowing = userFollowing;
-
-  ListBuilder<DocumentReference<Object>> _userFollowers;
-  ListBuilder<DocumentReference<Object>> get userFollowers =>
-      _$this._userFollowers ??= new ListBuilder<DocumentReference<Object>>();
-  set userFollowers(ListBuilder<DocumentReference<Object>> userFollowers) =>
-      _$this._userFollowers = userFollowers;
-
-  String _password;
-  String get password => _$this._password;
-  set password(String password) => _$this._password = password;
-
-  String _referralCode;
-  String get referralCode => _$this._referralCode;
-  set referralCode(String referralCode) => _$this._referralCode = referralCode;
+  String _houseStandard;
+  String get houseStandard => _$this._houseStandard;
+  set houseStandard(String houseStandard) =>
+      _$this._houseStandard = houseStandard;
 
   DocumentReference<Object> _reference;
   DocumentReference<Object> get reference => _$this._reference;
@@ -652,29 +478,22 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   UsersRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _email = $v.email;
       _displayName = $v.displayName;
       _photoUrl = $v.photoUrl;
       _uid = $v.uid;
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
-      _location = $v.location;
-      _faceboodLink = $v.faceboodLink;
-      _instagramLink = $v.instagramLink;
-      _userRolls = $v.userRolls?.toBuilder();
-      _userPosts = $v.userPosts?.toBuilder();
-      _postFavorite = $v.postFavorite?.toBuilder();
-      _postCart = $v.postCart?.toBuilder();
-      _userChats = $v.userChats?.toBuilder();
-      _businessAccount = $v.businessAccount;
-      _coverPhoto = $v.coverPhoto;
-      _walletAmount = $v.walletAmount;
-      _cartPrice = $v.cartPrice;
-      _cartQuantity = $v.cartQuantity;
-      _userFollowing = $v.userFollowing?.toBuilder();
-      _userFollowers = $v.userFollowers?.toBuilder();
-      _password = $v.password;
-      _referralCode = $v.referralCode;
+      _businessAdmin = $v.businessAdmin;
+      _email = $v.email;
+      _house = $v.house;
+      _transaction = $v.transaction;
+      _userPlan = $v.userPlan;
+      _planAvailable = $v.planAvailable;
+      _renovation = $v.renovation;
+      _ownerAdmin = $v.ownerAdmin;
+      _time = $v.time;
+      _tipInfo = $v.tipInfo;
+      _houseStandard = $v.houseStandard;
       _reference = $v.reference;
       _$v = null;
     }
@@ -694,58 +513,25 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
 
   @override
   _$UsersRecord build() {
-    _$UsersRecord _$result;
-    try {
-      _$result = _$v ??
-          new _$UsersRecord._(
-              email: email,
-              displayName: displayName,
-              photoUrl: photoUrl,
-              uid: uid,
-              createdTime: createdTime,
-              phoneNumber: phoneNumber,
-              location: location,
-              faceboodLink: faceboodLink,
-              instagramLink: instagramLink,
-              userRolls: _userRolls?.build(),
-              userPosts: _userPosts?.build(),
-              postFavorite: _postFavorite?.build(),
-              postCart: _postCart?.build(),
-              userChats: _userChats?.build(),
-              businessAccount: businessAccount,
-              coverPhoto: coverPhoto,
-              walletAmount: walletAmount,
-              cartPrice: cartPrice,
-              cartQuantity: cartQuantity,
-              userFollowing: _userFollowing?.build(),
-              userFollowers: _userFollowers?.build(),
-              password: password,
-              referralCode: referralCode,
-              reference: reference);
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'userRolls';
-        _userRolls?.build();
-        _$failedField = 'userPosts';
-        _userPosts?.build();
-        _$failedField = 'postFavorite';
-        _postFavorite?.build();
-        _$failedField = 'postCart';
-        _postCart?.build();
-        _$failedField = 'userChats';
-        _userChats?.build();
-
-        _$failedField = 'userFollowing';
-        _userFollowing?.build();
-        _$failedField = 'userFollowers';
-        _userFollowers?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'UsersRecord', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$UsersRecord._(
+            displayName: displayName,
+            photoUrl: photoUrl,
+            uid: uid,
+            createdTime: createdTime,
+            phoneNumber: phoneNumber,
+            businessAdmin: businessAdmin,
+            email: email,
+            house: house,
+            transaction: transaction,
+            userPlan: userPlan,
+            planAvailable: planAvailable,
+            renovation: renovation,
+            ownerAdmin: ownerAdmin,
+            time: time,
+            tipInfo: tipInfo,
+            houseStandard: houseStandard,
+            reference: reference);
     replace(_$result);
     return _$result;
   }
