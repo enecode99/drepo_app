@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "389507445034",
+    "project_id": "drepoapp",
+    "storage_bucket": "drepoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389507445034:android:d90ca32cad86e934482e53",
+        "android_client_info": {
+          "package_name": "com.drepocompany.drepo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389507445034-6ntg52coqlb7ldgdcqs96nt8afdhki2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.drepocompany.drepo",
+            "certificate_hash": "efe6bf53a29bfbf5250a677173fb2ece1a8b373f"
+          }
+        },
+        {
+          "client_id": "389507445034-eblqbuv4h8sktaafbse6lbat7gnptfo9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.drepocompany.drepo",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "389507445034-dru07kiuado67e1e243ljs6mbfgjrurn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ9V0VERSAg9xvXi7BLeSCBjxjhz6waT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389507445034-dru07kiuado67e1e243ljs6mbfgjrurn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "389507445034-vhpdj3cvhld1lkd6f3vprl9otp2d6e1l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.drepocompany.drepo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
