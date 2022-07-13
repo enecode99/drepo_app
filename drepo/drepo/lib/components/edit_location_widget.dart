@@ -132,7 +132,7 @@ class _EditLocationWidgetState extends State<EditLocationWidget> {
                   color: Colors.transparent,
                   width: 1,
                 ),
-                borderRadius: 15,
+                borderRadius: BorderRadius.circular(15),
               ),
             ),
           ],

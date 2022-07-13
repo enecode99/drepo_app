@@ -5,13 +5,13 @@ export 'phone_verification/phone_verification_widget.dart'
 export 'phone_sign_up/phone_sign_up_widget.dart' show PhoneSignUpWidget;
 export 'sign_in/sign_in_widget.dart' show SignInWidget;
 export 'forgot_pass/forgot_pass_widget.dart' show ForgotPassWidget;
-export 'sign_up/sign_up_widget.dart' show SignUpWidget;
-export 'welcome/welcome_widget.dart' show WelcomeWidget;
-export 'home/home_widget.dart' show HomeWidget;
 export 'explore/explore_widget.dart' show ExploreWidget;
-export 'profile_page/profile_page_widget.dart' show ProfilePageWidget;
+export 'sign_up/sign_up_widget.dart' show SignUpWidget;
+export 'home/home_widget.dart' show HomeWidget;
+export 'welcome/welcome_widget.dart' show WelcomeWidget;
 export 'user_posts_rolls/user_posts_rolls_widget.dart'
     show UserPostsRollsWidget;
+export 'profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export 'user_info/user_info_widget.dart' show UserInfoWidget;
 export 'business_account/business_account_widget.dart'
     show BusinessAccountWidget;

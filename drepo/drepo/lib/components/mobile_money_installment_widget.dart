@@ -1,30 +1,25 @@
-import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class MobileMoneyPassRollWidget extends StatefulWidget {
-  const MobileMoneyPassRollWidget({
+class MobileMoneyInstallmentWidget extends StatefulWidget {
+  const MobileMoneyInstallmentWidget({
     Key key,
-    this.roll,
-    this.referralCode,
-    this.deriveryDetails,
+    this.installmentGoal,
   }) : super(key: key);
 
-  final RollsRecord roll;
-  final String referralCode;
-  final String deriveryDetails;
+  final OrdersRecord installmentGoal;
 
   @override
-  _MobileMoneyPassRollWidgetState createState() =>
-      _MobileMoneyPassRollWidgetState();
+  _MobileMoneyInstallmentWidgetState createState() =>
+      _MobileMoneyInstallmentWidgetState();
 }
 
-class _MobileMoneyPassRollWidgetState extends State<MobileMoneyPassRollWidget> {
+class _MobileMoneyInstallmentWidgetState
+    extends State<MobileMoneyInstallmentWidget> {
   TextEditingController textController;
 
   @override
@@ -54,7 +49,7 @@ class _MobileMoneyPassRollWidgetState extends State<MobileMoneyPassRollWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'a9et81z6' /* Enter Password. */,
+                      's7jpl9lm' /* Enter Password. */,
                     ),
                     style: FlutterFlowTheme.of(context).subtitle1.override(
                           fontFamily: 'Lexend Deca',
@@ -74,10 +69,10 @@ class _MobileMoneyPassRollWidgetState extends State<MobileMoneyPassRollWidget> {
               obscureText: false,
               decoration: InputDecoration(
                 labelText: FFLocalizations.of(context).getText(
-                  'z2ig92um' /* enter password. */,
+                  'tq2zx6yc' /* enter password. */,
                 ),
                 hintText: FFLocalizations.of(context).getText(
-                  'xlfuq25t' /*  */,
+                  'rlsetr4i' /*  */,
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
@@ -105,65 +100,10 @@ class _MobileMoneyPassRollWidgetState extends State<MobileMoneyPassRollWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
             child: FFButtonWidget(
               onPressed: () async {
-                if ((valueOrDefault(currentUserDocument?.password, '')) ==
-                    (textController.text)) {
-                  if ((valueOrDefault(currentUserDocument?.walletAmount, 0)) <
-                      (widget.roll.rollPrice)) {
-                    await showDialog(
-                      context: context,
-                      builder: (alertDialogContext) {
-                        return AlertDialog(
-                          title: Text('Sorry!!'),
-                          content: Text(
-                              'Huna kiasi cha kutosha kufanya muamala huu.'),
-                          actions: [
-                            TextButton(
-                              onPressed: () =>
-                                  Navigator.pop(alertDialogContext),
-                              child: Text('Ok'),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  } else {
-                    final ordersCreateData = {
-                      ...createOrdersRecordData(
-                        orderAmount: widget.roll.rollPrice,
-                        orderPaid: widget.roll.rollPrice,
-                        orderTime: getCurrentTimestamp,
-                        orderSeller: widget.roll.rollUser,
-                        deriveryDetails: widget.deriveryDetails,
-                        isOrderRoll: true,
-                        orderRoll: widget.roll.reference,
-                        referral: widget.referralCode,
-                        isInstallment: false,
-                      ),
-                      'order_users': [currentUserReference],
-                    };
-                    await OrdersRecord.collection.doc().set(ordersCreateData);
-                    Navigator.pop(context);
-                  }
-                } else {
-                  await showDialog(
-                    context: context,
-                    builder: (alertDialogContext) {
-                      return AlertDialog(
-                        title: Text('Sorry!!'),
-                        content: Text('Weka neno siri (password) sahihi'),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.pop(alertDialogContext),
-                            child: Text('Ok'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                }
+                Navigator.pop(context);
               },
               text: FFLocalizations.of(context).getText(
-                's80hbf44' /* PAY */,
+                '3jip0oin' /* PAY */,
               ),
               options: FFButtonOptions(
                 width: 250,

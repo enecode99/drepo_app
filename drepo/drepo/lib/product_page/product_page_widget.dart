@@ -605,7 +605,7 @@ class _ProductPageWidgetState extends State<ProductPageWidget> {
                                   color: Colors.transparent,
                                   width: 1,
                                 ),
-                                borderRadius: 30,
+                                borderRadius: BorderRadius.circular(30),
                               ),
                             ),
                           FFButtonWidget(
@@ -648,7 +648,7 @@ class _ProductPageWidgetState extends State<ProductPageWidget> {
                                 color: Colors.transparent,
                                 width: 1,
                               ),
-                              borderRadius: 30,
+                              borderRadius: BorderRadius.circular(30),
                             ),
                           ),
                         ],

@@ -3,6 +3,7 @@ import '../backend/backend.dart';
 import '../components/postroll_installment_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -112,9 +113,8 @@ class _InstalmentGoalsWidgetState extends State<InstalmentGoalsWidget> {
                               ),
                             ),
                             Text(
-                              FFLocalizations.of(context).getText(
-                                'u3xtp866' /* My Goal */,
-                              ),
+                              functions
+                                  .formatPrice(columnOrdersRecord.orderAmount),
                               style: FlutterFlowTheme.of(context)
                                   .subtitle1
                                   .override(

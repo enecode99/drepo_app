@@ -258,7 +258,7 @@ class _DrepoGetwayWidgetState extends State<DrepoGetwayWidget> {
                             color: Colors.transparent,
                             width: 1,
                           ),
-                          borderRadius: 30,
+                          borderRadius: BorderRadius.circular(30),
                         ),
                       );
                     },

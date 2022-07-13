@@ -167,7 +167,7 @@ class _ForgotPassWidgetState extends State<ForgotPassWidget> {
                         color: Colors.transparent,
                         width: 1,
                       ),
-                      borderRadius: 20,
+                      borderRadius: BorderRadius.circular(20),
                     ),
                   ),
                 ),

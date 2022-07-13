@@ -172,7 +172,7 @@ class _WithdrawDrepoWidgetState extends State<WithdrawDrepoWidget> {
                     color: Colors.transparent,
                     width: 1,
                   ),
-                  borderRadius: 30,
+                  borderRadius: BorderRadius.circular(30),
                 ),
               ),
             ),

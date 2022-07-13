@@ -118,8 +118,8 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Home': HomeWidget(),
       'Explore': ExploreWidget(),
+      'Home': HomeWidget(),
       'ProfilePage': ProfilePageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
@@ -137,20 +137,6 @@ class _NavBarPageState extends State<NavBarPage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
-              size: 24,
-            ),
-            activeIcon: Icon(
-              Icons.home,
-              size: 24,
-            ),
-            label: FFLocalizations.of(context).getText(
-              'pso030v3' /* Home */,
-            ),
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
               Icons.search,
               size: 24,
             ),
@@ -160,6 +146,20 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             label: FFLocalizations.of(context).getText(
               'io8eig88' /* Explore */,
+            ),
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home_outlined,
+              size: 24,
+            ),
+            activeIcon: Icon(
+              Icons.home,
+              size: 24,
+            ),
+            label: FFLocalizations.of(context).getText(
+              'pso030v3' /* Home */,
             ),
             tooltip: '',
           ),

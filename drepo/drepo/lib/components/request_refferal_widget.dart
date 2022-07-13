@@ -7,22 +7,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class EditIGWidget extends StatefulWidget {
-  const EditIGWidget({Key key}) : super(key: key);
+class RequestRefferalWidget extends StatefulWidget {
+  const RequestRefferalWidget({Key key}) : super(key: key);
 
   @override
-  _EditIGWidgetState createState() => _EditIGWidgetState();
+  _RequestRefferalWidgetState createState() => _RequestRefferalWidgetState();
 }
 
-class _EditIGWidgetState extends State<EditIGWidget> {
-  TextEditingController emailTextFieldController;
-
-  @override
-  void initState() {
-    super.initState();
-    emailTextFieldController = TextEditingController();
-  }
-
+class _RequestRefferalWidgetState extends State<RequestRefferalWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,6 +34,7 @@ class _EditIGWidgetState extends State<EditIGWidget> {
         padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
         child: Column(
           mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
@@ -50,7 +43,7 @@ class _EditIGWidgetState extends State<EditIGWidget> {
                 children: [
                   Text(
                     FFLocalizations.of(context).getText(
-                      '7kszss4c' /* Edit Instagram */,
+                      'jhq5opdx' /* Request Referral Code */,
                     ),
                     style: FlutterFlowTheme.of(context).subtitle1.override(
                           fontFamily: 'Lexend Deca',
@@ -60,7 +53,7 @@ class _EditIGWidgetState extends State<EditIGWidget> {
                         ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(180, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(190, 0, 0, 0),
                     child: InkWell(
                       onTap: () async {
                         Navigator.pop(context);
@@ -75,50 +68,18 @@ class _EditIGWidgetState extends State<EditIGWidget> {
                 ],
               ),
             ),
-            Divider(
-              height: 2,
-              thickness: 1,
-              color: Color(0xFFDBE2E7),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
-              child: TextFormField(
-                controller: emailTextFieldController,
-                obscureText: false,
-                decoration: InputDecoration(
-                  hintText: FFLocalizations.of(context).getText(
-                    'v7iwtg3f' /* Enter new  Instagram link.... */,
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFF1E0A3D),
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(60),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xFF1E0A3D),
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(60),
-                  ),
-                  filled: true,
-                  contentPadding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
-                ),
-                style: FlutterFlowTheme.of(context).bodyText1,
-              ),
-            ),
             FFButtonWidget(
               onPressed: () async {
-                final usersUpdateData = createUsersRecordData(
-                  instagramLink: emailTextFieldController.text,
+                final referralCodeCreateData = createReferralCodeRecordData(
+                  requestUser: currentUserReference,
                 );
-                await currentUserReference.update(usersUpdateData);
+                await ReferralCodeRecord.collection
+                    .doc()
+                    .set(referralCodeCreateData);
                 Navigator.pop(context);
               },
               text: FFLocalizations.of(context).getText(
-                'mlmt2gez' /* SUBMIT */,
+                'sr7omb8m' /* SUBMIT */,
               ),
               options: FFButtonOptions(
                 width: 300,

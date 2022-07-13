@@ -77,7 +77,7 @@ class _AddBusinessWidgetState extends State<AddBusinessWidget> {
                   color: Colors.transparent,
                   width: 1,
                 ),
-                borderRadius: 40,
+                borderRadius: BorderRadius.circular(40),
               ),
             ),
           ],

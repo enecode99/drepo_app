@@ -451,7 +451,7 @@ class _FashionWidgetState extends State<FashionWidget> {
                           color: Colors.transparent,
                           width: 1,
                         ),
-                        borderRadius: 12,
+                        borderRadius: BorderRadius.circular(12),
                       ),
                     ),
                     FFButtonWidget(
@@ -474,7 +474,7 @@ class _FashionWidgetState extends State<FashionWidget> {
                           color: Colors.transparent,
                           width: 1,
                         ),
-                        borderRadius: 12,
+                        borderRadius: BorderRadius.circular(12),
                       ),
                     ),
                   ],

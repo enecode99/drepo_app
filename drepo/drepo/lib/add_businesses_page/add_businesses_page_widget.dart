@@ -390,7 +390,9 @@ class _AddBusinessesPageWidgetState extends State<AddBusinessesPageWidget> {
                                                             Colors.transparent,
                                                         width: 1,
                                                       ),
-                                                      borderRadius: 12,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12),
                                                     ),
                                                   ),
                                                 ),
@@ -465,7 +467,9 @@ class _AddBusinessesPageWidgetState extends State<AddBusinessesPageWidget> {
                                                             Colors.transparent,
                                                         width: 1,
                                                       ),
-                                                      borderRadius: 12,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12),
                                                     ),
                                                   ),
                                                 ),

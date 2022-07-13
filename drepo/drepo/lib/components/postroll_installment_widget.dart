@@ -1,10 +1,8 @@
 import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
+import '../components/installment_pay_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../product_page/product_page_widget.dart';
-import '../view_roll/view_roll_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,70 +20,38 @@ class PostrollInstallmentWidget extends StatefulWidget {
       _PostrollInstallmentWidgetState();
 }
 
-class _PostrollInstallmentWidgetState extends State<PostrollInstallmentWidget>
-    with TickerProviderStateMixin {
-  final animationsMap = {
-    'cardOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      duration: 600,
-      hideBeforeAnimating: false,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-  };
-
-  @override
-  void initState() {
-    super.initState();
-    startPageLoadAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
-      this,
-    );
-  }
-
+class _PostrollInstallmentWidgetState extends State<PostrollInstallmentWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xFFF5F5F5),
+        color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
-      child: Card(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        color: Color(0xFFF5F5F5),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 3,
-                      color: Color(0x32000000),
-                      offset: Offset(0, 1),
-                    )
-                  ],
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFFF5F5F5),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).primaryBackground,
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 3,
+                  color: Color(0x32000000),
+                  offset: Offset(0, 1),
+                )
+              ],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Card(
+                  clipBehavior: Clip.antiAliasWithSaveLayer,
+                  color: Color(0xFFF5F5F5),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Stack(
                         children: [
                           Padding(
                             padding:
@@ -131,245 +97,176 @@ class _PostrollInstallmentWidgetState extends State<PostrollInstallmentWidget>
                               ],
                             ),
                           ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(15, 16, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '3tx58iud' /* Progress */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText2
-                                      .override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF8B97A2),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 10, 0),
-                                  child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
-                                    },
-                                    text: FFLocalizations.of(context).getText(
-                                      'ogah6r14' /* PAY */,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 100,
-                                      height: 30,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryColor,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .subtitle2
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.white,
-                                            fontSize: 14,
-                                          ),
-                                      borderSide: BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1,
-                                      ),
-                                      borderRadius: 12,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                          Align(
+                            alignment: AlignmentDirectional(-0.95, 0),
+                            child: InkWell(
+                              onTap: () async {
+                                Navigator.pop(context);
+                              },
+                              child: Icon(
+                                Icons.arrow_back,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                size: 24,
+                              ),
                             ),
                           ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(15, 4, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  functions.formatPrice(widget.order.orderPaid),
-                                  style: FlutterFlowTheme.of(context)
-                                      .title1
+                        ],
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 16, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                '3tx58iud' /* Progress */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText2
+                                  .override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Color(0xFF8B97A2),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    context: context,
+                                    builder: (context) {
+                                      return Padding(
+                                        padding:
+                                            MediaQuery.of(context).viewInsets,
+                                        child: InstallmentPayWidget(
+                                          installmentGoal: widget.order,
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'ogah6r14' /* PAY */,
+                                ),
+                                options: FFButtonOptions(
+                                  width: 100,
+                                  height: 30,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle2
                                       .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontSize: 14,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(15, 4, 0, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Text(
+                              functions.formatPrice(widget.order.orderPaid),
+                              style:
+                                  FlutterFlowTheme.of(context).title1.override(
                                         fontFamily: 'Lexend Deca',
                                         color: Color(0xFF090F13),
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
                                       ),
-                                ),
-                                Icon(
-                                  Icons.arrow_right_alt,
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  size: 35,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      2, 0, 0, 0),
-                                  child: Text(
-                                    functions
-                                        .formatPrice(widget.order.orderAmount),
-                                    style: FlutterFlowTheme.of(context)
-                                        .subtitle2
-                                        .override(
-                                          fontFamily: 'Lexend Deca',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                              ],
                             ),
-                          ),
-                          StreamBuilder<RollsRecord>(
-                            stream:
-                                RollsRecord.getDocument(widget.order.orderRoll),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50,
-                                    height: 50,
-                                    child: CircularProgressIndicator(
+                            Icon(
+                              Icons.arrow_right_alt,
+                              color: FlutterFlowTheme.of(context).primaryColor,
+                              size: 35,
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(2, 0, 0, 0),
+                              child: Text(
+                                functions.formatPrice(widget.order.orderAmount),
+                                style: FlutterFlowTheme.of(context)
+                                    .subtitle2
+                                    .override(
+                                      fontFamily: 'Lexend Deca',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryColor,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                  ),
-                                );
-                              }
-                              final rowRollsRecord = snapshot.data;
-                              return Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  StreamBuilder<PostsRecord>(
-                                    stream: PostsRecord.getDocument(
-                                        widget.order.orderPost),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50,
-                                            height: 50,
-                                            child: CircularProgressIndicator(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      final buttonPostsRecord = snapshot.data;
-                                      return FFButtonWidget(
-                                        onPressed: () async {
-                                          if ((widget.order.isOrderRoll) ==
-                                              true) {
-                                            await Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ViewRollWidget(
-                                                  rollView: rowRollsRecord,
-                                                ),
-                                              ),
-                                            );
-                                          } else {
-                                            await Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    ProductPageWidget(
-                                                  productView:
-                                                      buttonPostsRecord,
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                        },
-                                        text:
-                                            FFLocalizations.of(context).getText(
-                                          'cyvbimxp' /* Product of your goal */,
-                                        ),
-                                        options: FFButtonOptions(
-                                          width: 300,
-                                          height: 40,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .subtitle2
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.white,
-                                                  ),
-                                          borderSide: BorderSide(
-                                            color: Colors.transparent,
-                                            width: 1,
-                                          ),
-                                          borderRadius: 12,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24, 16, 24, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'drho9ypm' /* Transaction History */,
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyText2.override(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF8B97A2),
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
-                    ),
-                  ],
-                ),
-              ),
-              StreamBuilder<List<TransactionsRecord>>(
-                stream: queryTransactionsRecord(
-                  queryBuilder: (transactionsRecord) =>
-                      transactionsRecord.where('transaction_order',
-                          isEqualTo: widget.order.reference),
-                ),
-                builder: (context, snapshot) {
-                  // Customize what your widget looks like when it's loading.
-                  if (!snapshot.hasData) {
-                    return Center(
-                      child: SizedBox(
-                        width: 50,
-                        height: 50,
-                        child: CircularProgressIndicator(
-                          color: FlutterFlowTheme.of(context).primaryColor,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                    );
-                  }
-                  List<TransactionsRecord> columnTransactionsRecordList =
-                      snapshot.data;
-                  return Column(
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(24, 16, 24, 0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Text(
+                  FFLocalizations.of(context).getText(
+                    'drho9ypm' /* Transaction History */,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyText2.override(
+                        fontFamily: 'Lexend Deca',
+                        color: Color(0xFF8B97A2),
+                        fontSize: 14,
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+            child: StreamBuilder<List<TransactionsRecord>>(
+              stream: queryTransactionsRecord(
+                queryBuilder: (transactionsRecord) => transactionsRecord.where(
+                    'transaction_order',
+                    isEqualTo: widget.order.reference),
+              ),
+              builder: (context, snapshot) {
+                // Customize what your widget looks like when it's loading.
+                if (!snapshot.hasData) {
+                  return Center(
+                    child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: CircularProgressIndicator(
+                        color: FlutterFlowTheme.of(context).primaryColor,
+                      ),
+                    ),
+                  );
+                }
+                List<TransactionsRecord> columnTransactionsRecordList =
+                    snapshot.data;
+                return SingleChildScrollView(
+                  child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: List.generate(columnTransactionsRecordList.length,
                         (columnIndex) {
@@ -484,10 +381,9 @@ class _PostrollInstallmentWidgetState extends State<PostrollInstallmentWidget>
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 4, 0, 0),
                                               child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  't08qn8km' /* $425.24 */,
-                                                ),
+                                                functions.formatPrice(
+                                                    columnTransactionsRecord
+                                                        .transactionAmount),
                                                 style: FlutterFlowTheme.of(
                                                         context)
                                                     .bodyText1
@@ -530,7 +426,8 @@ class _PostrollInstallmentWidgetState extends State<PostrollInstallmentWidget>
                                                     color: Colors.transparent,
                                                     width: 1,
                                                   ),
-                                                  borderRadius: 12,
+                                                  borderRadius:
+                                                      BorderRadius.circular(12),
                                                 ),
                                               ),
                                           ],
@@ -545,13 +442,13 @@ class _PostrollInstallmentWidgetState extends State<PostrollInstallmentWidget>
                         ),
                       );
                     }),
-                  );
-                },
-              ),
-            ],
+                  ),
+                );
+              },
+            ),
           ),
-        ),
-      ).animated([animationsMap['cardOnPageLoadAnimation']]),
+        ],
+      ),
     );
   }
 }

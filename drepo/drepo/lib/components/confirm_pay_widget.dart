@@ -80,7 +80,7 @@ class _ConfirmPayWidgetState extends State<ConfirmPayWidget> {
                   color: Colors.transparent,
                   width: 1,
                 ),
-                borderRadius: 40,
+                borderRadius: BorderRadius.circular(40),
               ),
             ),
           ],

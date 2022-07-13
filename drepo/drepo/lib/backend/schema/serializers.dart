@@ -10,6 +10,7 @@ import 'orders_record.dart';
 import 'notifications_record.dart';
 import 'cart_record.dart';
 import 'quantities_record.dart';
+import 'referral_code_record.dart';
 
 import 'index.dart';
 
@@ -30,6 +31,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   NotificationsRecord,
   CartRecord,
   QuantitiesRecord,
+  ReferralCodeRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

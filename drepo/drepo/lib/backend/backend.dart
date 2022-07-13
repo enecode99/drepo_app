@@ -14,6 +14,7 @@ import 'schema/orders_record.dart';
 import 'schema/notifications_record.dart';
 import 'schema/cart_record.dart';
 import 'schema/quantities_record.dart';
+import 'schema/referral_code_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -31,6 +32,7 @@ export 'schema/orders_record.dart';
 export 'schema/notifications_record.dart';
 export 'schema/cart_record.dart';
 export 'schema/quantities_record.dart';
+export 'schema/referral_code_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -449,6 +451,48 @@ Future<FFFirestorePage<QuantitiesRecord>> queryQuantitiesRecordPage({
     queryCollectionPage(
       QuantitiesRecord.collection(parent),
       QuantitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query ReferralCodeRecords (as a Stream and as a Future).
+Stream<List<ReferralCodeRecord>> queryReferralCodeRecord({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ReferralCodeRecord.collection,
+      ReferralCodeRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ReferralCodeRecord>> queryReferralCodeRecordOnce({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ReferralCodeRecord.collection,
+      ReferralCodeRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<ReferralCodeRecord>> queryReferralCodeRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      ReferralCodeRecord.collection,
+      ReferralCodeRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

@@ -659,7 +659,7 @@ class _ExploreWidgetState extends State<ExploreWidget> {
                             color: Colors.transparent,
                             width: 1,
                           ),
-                          borderRadius: 12,
+                          borderRadius: BorderRadius.circular(12),
                         ),
                       ),
                     ),
@@ -1207,7 +1207,8 @@ class _ExploreWidgetState extends State<ExploreWidget> {
                                               borderSide: BorderSide(
                                                 color: Colors.transparent,
                                               ),
-                                              borderRadius: 10,
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),

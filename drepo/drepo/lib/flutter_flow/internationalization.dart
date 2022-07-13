@@ -204,6 +204,65 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
   },
+  // Explore
+  {
+    'a4vs9glo': {
+      'en': 'Enquire',
+      'sw': 'Uliza',
+    },
+    '38mwqkxq': {
+      'en': 'Drepo Store',
+      'sw': 'Soko la Drepo',
+    },
+    'rqsqiy0n': {
+      'en': 'Drepo Products',
+      'sw': 'Bidhaa za Drepo',
+    },
+    'uav9ewvc': {
+      'en': 'My Chats',
+      'sw': 'Chati Zangu',
+    },
+    '4gbeqw8k': {
+      'en': 'Businesses',
+      'sw': 'Biashara',
+    },
+    'i744xedj': {
+      'en': 'My Cart',
+      'sw': 'Kapu langu',
+    },
+    'tbrraez3': {
+      'en': 'My Wishlist',
+      'sw': 'Penda',
+    },
+    '1ljyfte3': {
+      'en': 'My Wallet ',
+      'sw': 'Malipo',
+    },
+    'ambhh3at': {
+      'en': 'Notifications',
+      'sw': 'Arifa',
+    },
+    '9v4wx0i1': {
+      'en': 'Policies',
+      'sw': 'Sera',
+    },
+    'fqhlkwwa': {
+      'en': 'Add Business',
+      'sw': 'Ongeza Biashara',
+    },
+    'oghjsn3e': {
+      'en': 'SignOut',
+      'sw': 'Toka',
+    },
+    '4ui9ak9p': {
+      'en': 'Drepo Products',
+      'sw': '',
+    },
+    'io8eig88': {
+      'en': 'Explore',
+      'sw': '',
+    },
+  },
   // SignUp
   {
     'k2cezrnm': {
@@ -299,17 +358,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
     '6qthz39u': {
-      'en': 'Home',
-      'sw': '',
-    },
-  },
-  // Welcome
-  {
-    '49ommtie': {
-      'en': 'Next',
-      'sw': 'Mbele',
-    },
-    'rinpilym': {
       'en': 'Home',
       'sw': '',
     },
@@ -413,62 +461,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
   },
-  // Explore
+  // Welcome
   {
-    'a4vs9glo': {
-      'en': 'Enquire',
-      'sw': 'Uliza',
+    '49ommtie': {
+      'en': 'Next',
+      'sw': 'Mbele',
     },
-    '38mwqkxq': {
-      'en': 'Drepo Store',
-      'sw': 'Soko la Drepo',
-    },
-    'rqsqiy0n': {
-      'en': 'Drepo Products',
-      'sw': 'Bidhaa za Drepo',
-    },
-    'uav9ewvc': {
-      'en': 'My Chats',
-      'sw': 'Chati Zangu',
-    },
-    '4gbeqw8k': {
-      'en': 'Businesses',
-      'sw': 'Biashara',
-    },
-    'i744xedj': {
-      'en': 'My Cart',
-      'sw': 'Kapu langu',
-    },
-    'tbrraez3': {
-      'en': 'My Wishlist',
-      'sw': 'Penda',
-    },
-    '1ljyfte3': {
-      'en': 'My Wallet ',
-      'sw': 'Malipo',
-    },
-    'ambhh3at': {
-      'en': 'Notifications',
-      'sw': 'Arifa',
-    },
-    '9v4wx0i1': {
-      'en': 'Policies',
-      'sw': 'Sera',
-    },
-    'fqhlkwwa': {
-      'en': 'Add Business',
-      'sw': 'Ongeza Biashara',
-    },
-    'oghjsn3e': {
-      'en': 'SignOut',
-      'sw': 'Toka',
-    },
-    '4ui9ak9p': {
-      'en': 'Drepo Products',
+    'rinpilym': {
+      'en': 'Home',
       'sw': '',
     },
-    'io8eig88': {
-      'en': 'Explore',
+  },
+  // UserPostsRolls
+  {
+    'n1263dc9': {
+      'en': 'My Posts & Rolls',
+      'sw': 'Machapisho & Rolls Zangu',
+    },
+    'qp7aqqpr': {
+      'en': 'Home',
       'sw': '',
     },
   },
@@ -560,17 +571,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '15l64uel': {
       'en': 'Profile',
-      'sw': '',
-    },
-  },
-  // UserPostsRolls
-  {
-    'n1263dc9': {
-      'en': 'My Posts & Rolls',
-      'sw': 'Machapisho & Rolls Zangu',
-    },
-    'qp7aqqpr': {
-      'en': 'Home',
       'sw': '',
     },
   },
@@ -1368,10 +1368,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Goals',
       'sw': 'Malengo',
     },
-    'u3xtp866': {
-      'en': 'My Goal',
-      'sw': 'Lengo Langu',
-    },
     '8gwzxqsj': {
       'en': 'Home',
       'sw': '',
@@ -2027,10 +2023,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'PAY',
       'sw': 'LIPA',
     },
-    'cyvbimxp': {
-      'en': 'Product of your goal',
-      'sw': 'Bidhaa ya lengo yako',
-    },
     'drho9ypm': {
       'en': 'Transaction History',
       'sw': 'Historia ya Miamala',
@@ -2038,10 +2030,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'xfl184l7': {
       'en': 'Drepo Pay ',
       'sw': 'Drepo Pay ',
-    },
-    't08qn8km': {
-      'en': '\$425.24',
-      'sw': '',
     },
     'mavpe2h3': {
       'en': 'pending',
@@ -2084,6 +2072,63 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'kc6cwh4v': {
       'en': 'PAY',
       'sw': 'LIPA',
+    },
+  },
+  // InstallmentPay
+  {
+    'mwpvj0j7': {
+      'en': 'Pay By',
+      'sw': 'Lipa Kwa ',
+    },
+    'ls2px5m6': {
+      'en': 'Drepo Pay',
+      'sw': 'Drepo Pay',
+    },
+    'cvf3tif6': {
+      'en': 'M-PESA',
+      'sw': 'M-PESA',
+    },
+    '33dpj0ys': {
+      'en': 'Airtel Money',
+      'sw': 'Airtel Money',
+    },
+    'ryt7gfge': {
+      'en': 'Tigo Pesa',
+      'sw': 'Tigo Pesa',
+    },
+    'yvhp1nmj': {
+      'en': 'PAY',
+      'sw': 'LIPA',
+    },
+  },
+  // MobileMoneyInstallment
+  {
+    's7jpl9lm': {
+      'en': 'Enter Password.',
+      'sw': 'Ingiza neno siri.',
+    },
+    'tq2zx6yc': {
+      'en': 'enter password.',
+      'sw': 'ingiza namba ya siri.',
+    },
+    'rlsetr4i': {
+      'en': '',
+      'sw': '',
+    },
+    '3jip0oin': {
+      'en': 'PAY',
+      'sw': 'LIPA',
+    },
+  },
+  // requestRefferal
+  {
+    'jhq5opdx': {
+      'en': 'Request Referral Code',
+      'sw': 'Agiza Kodi namba ya wakala',
+    },
+    'sr7omb8m': {
+      'en': 'SUBMIT',
+      'sw': 'WASILISHA',
     },
   },
   // Miscellaneous
