@@ -8,14 +8,14 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FashionWidget extends StatefulWidget {
-  const FashionWidget({Key key}) : super(key: key);
+class HomeAppliancesWidget extends StatefulWidget {
+  const HomeAppliancesWidget({Key key}) : super(key: key);
 
   @override
-  _FashionWidgetState createState() => _FashionWidgetState();
+  _HomeAppliancesWidgetState createState() => _HomeAppliancesWidgetState();
 }
 
-class _FashionWidgetState extends State<FashionWidget> {
+class _HomeAppliancesWidgetState extends State<HomeAppliancesWidget> {
   List<PostsRecord> algoliaSearchResults = [];
   TextEditingController textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -45,7 +45,7 @@ class _FashionWidgetState extends State<FashionWidget> {
         ),
         title: Text(
           FFLocalizations.of(context).getText(
-            'nocgd671' /* Fashion & Beauty */,
+            '50q7spwn' /* Home Appliances  */,
           ),
           style: FlutterFlowTheme.of(context).bodyText1.override(
                 fontFamily: 'Poppins',
@@ -120,7 +120,7 @@ class _FashionWidgetState extends State<FashionWidget> {
                                   decoration: InputDecoration(
                                     labelText:
                                         FFLocalizations.of(context).getText(
-                                      'zg9krpv8' /* Search events here... */,
+                                      'ihpabuwk' /* Search events here... */,
                                     ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -180,12 +180,12 @@ class _FashionWidgetState extends State<FashionWidget> {
                           tabs: [
                             Tab(
                               text: FFLocalizations.of(context).getText(
-                                'aim34x82' /* Ladies */,
+                                'lczmlocy' /* Gas */,
                               ),
                             ),
                             Tab(
                               text: FFLocalizations.of(context).getText(
-                                'xashz9m1' /* Gentlemens */,
+                                '9u8uns5o' /* Utilities  */,
                               ),
                             ),
                           ],
@@ -200,9 +200,9 @@ class _FashionWidgetState extends State<FashionWidget> {
                                   stream: queryPostsRecord(
                                     queryBuilder: (postsRecord) => postsRecord
                                         .where('post_category',
-                                            isEqualTo: 'Fashion & Beauty')
+                                            isEqualTo: 'Home Appliances ')
                                         .where('post_subcategory',
-                                            isEqualTo: 'Ladies'),
+                                            isEqualTo: 'Gas'),
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
@@ -495,9 +495,9 @@ class _FashionWidgetState extends State<FashionWidget> {
                                   stream: queryPostsRecord(
                                     queryBuilder: (postsRecord) => postsRecord
                                         .where('post_category',
-                                            isEqualTo: 'Fashion & Beauty')
+                                            isEqualTo: 'Home Appliances ')
                                         .where('post_subcategory',
-                                            isEqualTo: 'Gentlemens'),
+                                            isEqualTo: 'Utilities '),
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.

@@ -1,8 +1,10 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../backend/push_notifications/push_notifications_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,9 +52,31 @@ class _RemoveBusinessWidgetState extends State<RemoveBusinessWidget> {
               onPressed: () async {
                 final usersUpdateData = {
                   'user_following':
-                      FieldValue.arrayUnion([widget.user.reference]),
+                      FieldValue.arrayRemove([widget.user.reference]),
                 };
                 await currentUserReference.update(usersUpdateData);
+                triggerPushNotification(
+                  notificationTitle: 'Removed as Business',
+                  notificationText:
+                      functions.removeBusiness(currentUserDisplayName),
+                  userRefs: [widget.user.reference],
+                  initialPageName: 'Notifications',
+                  parameterData: {},
+                );
+
+                final notificationsCreateData = {
+                  ...createNotificationsRecordData(
+                    notificationType: 'removed business',
+                    notificationTime: getCurrentTimestamp,
+                    notificationDetails:
+                        functions.removeBusiness(currentUserDisplayName),
+                    notificationSender: currentUserReference,
+                  ),
+                  'receiver_users': [widget.user.reference],
+                };
+                await NotificationsRecord.collection
+                    .doc()
+                    .set(notificationsCreateData);
                 Navigator.pop(context);
               },
               text: FFLocalizations.of(context).getText(

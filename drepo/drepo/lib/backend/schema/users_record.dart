@@ -134,6 +134,57 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static UsersRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) => UsersRecord(
+        (c) => c
+          ..email = snapshot.data['email']
+          ..displayName = snapshot.data['display_name']
+          ..photoUrl = snapshot.data['photo_url']
+          ..uid = snapshot.data['uid']
+          ..createdTime = safeGet(() => DateTime.fromMillisecondsSinceEpoch(
+              snapshot.data['created_time']))
+          ..phoneNumber = snapshot.data['phone_number']
+          ..location = snapshot.data['location']
+          ..faceboodLink = snapshot.data['facebood_link']
+          ..instagramLink = snapshot.data['Instagram_link']
+          ..userRolls = safeGet(() =>
+              ListBuilder(snapshot.data['user_rolls'].map((s) => toRef(s))))
+          ..userPosts = safeGet(() =>
+              ListBuilder(snapshot.data['user_posts'].map((s) => toRef(s))))
+          ..postFavorite = safeGet(() =>
+              ListBuilder(snapshot.data['post_favorite'].map((s) => toRef(s))))
+          ..postCart = safeGet(() =>
+              ListBuilder(snapshot.data['post_cart'].map((s) => toRef(s))))
+          ..userChats = safeGet(() =>
+              ListBuilder(snapshot.data['user_chats'].map((s) => toRef(s))))
+          ..businessAccount = snapshot.data['business_account']
+          ..coverPhoto = snapshot.data['cover_photo']
+          ..walletAmount = snapshot.data['wallet_amount']?.round()
+          ..cartPrice = snapshot.data['cartPrice']?.round()
+          ..cartQuantity = snapshot.data['cartQuantity']?.round()
+          ..userFollowing = safeGet(() =>
+              ListBuilder(snapshot.data['user_following'].map((s) => toRef(s))))
+          ..userFollowers = safeGet(() =>
+              ListBuilder(snapshot.data['user_followers'].map((s) => toRef(s))))
+          ..password = snapshot.data['password']
+          ..referralCode = snapshot.data['referral_code']
+          ..reference = UsersRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<UsersRecord>> search(
+          {String term,
+          FutureOr<LatLng> location,
+          int maxResults,
+          double searchRadiusMeters}) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'users',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
+
   UsersRecord._();
   factory UsersRecord([void Function(UsersRecordBuilder) updates]) =
       _$UsersRecord;

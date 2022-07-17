@@ -1,11 +1,13 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
+import '../backend/push_notifications/push_notifications_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
 import '../main.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -416,6 +418,34 @@ class _CreateRollWidgetState extends State<CreateRollWidget> {
                           'roll_images': [uploadedFileUrl],
                         };
                         await RollsRecord.collection.doc().set(rollsCreateData);
+                        triggerPushNotification(
+                          notificationTitle: 'New Roll!!',
+                          notificationText: functions
+                              .rollNotification(currentUserDisplayName),
+                          notificationSound: 'default',
+                          userRefs:
+                              (currentUserDocument?.userFollowers?.toList() ??
+                                      [])
+                                  .toList(),
+                          initialPageName: 'Notifications',
+                          parameterData: {},
+                        );
+
+                        final notificationsCreateData = {
+                          ...createNotificationsRecordData(
+                            notificationType: 'roll',
+                            notificationTime: getCurrentTimestamp,
+                            notificationDetails: functions
+                                .rollNotification(currentUserDisplayName),
+                            notificationSender: currentUserReference,
+                          ),
+                          'receiver_users':
+                              (currentUserDocument?.userFollowers?.toList() ??
+                                  []),
+                        };
+                        await NotificationsRecord.collection
+                            .doc()
+                            .set(notificationsCreateData);
                         await Navigator.push(
                           context,
                           MaterialPageRoute(

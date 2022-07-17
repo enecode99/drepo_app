@@ -20,10 +20,6 @@ abstract class NotificationsRecord
   DateTime get notificationTime;
 
   @nullable
-  @BuiltValueField(wireName: 'notification_user')
-  DocumentReference get notificationUser;
-
-  @nullable
   @BuiltValueField(wireName: 'notification_details')
   String get notificationDetails;
 
@@ -32,12 +28,17 @@ abstract class NotificationsRecord
   DocumentReference get notificationSender;
 
   @nullable
+  @BuiltValueField(wireName: 'receiver_users')
+  BuiltList<DocumentReference> get receiverUsers;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(NotificationsRecordBuilder builder) => builder
     ..notificationType = ''
-    ..notificationDetails = '';
+    ..notificationDetails = ''
+    ..receiverUsers = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('notifications');
@@ -64,7 +65,6 @@ abstract class NotificationsRecord
 Map<String, dynamic> createNotificationsRecordData({
   String notificationType,
   DateTime notificationTime,
-  DocumentReference notificationUser,
   String notificationDetails,
   DocumentReference notificationSender,
 }) =>
@@ -73,6 +73,6 @@ Map<String, dynamic> createNotificationsRecordData({
         NotificationsRecord((n) => n
           ..notificationType = notificationType
           ..notificationTime = notificationTime
-          ..notificationUser = notificationUser
           ..notificationDetails = notificationDetails
-          ..notificationSender = notificationSender));
+          ..notificationSender = notificationSender
+          ..receiverUsers = null));

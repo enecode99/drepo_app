@@ -1198,66 +1198,76 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                     ),
                   ],
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryColor,
-                    shape: BoxShape.rectangle,
-                    border: Border.all(
-                      color: Color(0xFFEFEFEF),
-                      width: 1,
-                    ),
-                  ),
-                  child: InkWell(
-                    onTap: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => UserPostsRollsWidget(),
+                if (valueOrDefault(
+                        currentUserDocument?.businessAccount, false) ??
+                    true)
+                  AuthUserStreamWidget(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryColor,
+                        shape: BoxShape.rectangle,
+                        border: Border.all(
+                          color: Color(0xFFEFEFEF),
+                          width: 1,
                         ),
-                      );
-                    },
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                          child: Icon(
-                            Icons.local_post_office_sharp,
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                            size: 24,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'hopaifdl' /* My Posts & Rolls */,
+                      ),
+                      child: InkWell(
+                        onTap: () async {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => UserPostsRollsWidget(),
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
+                          );
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                              child: Icon(
+                                Icons.local_post_office_sharp,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                size: 24,
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'hopaifdl' /* My Posts & Rolls */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF090F13),
                                       fontSize: 14,
                                       fontWeight: FontWeight.normal,
                                     ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.9, 0),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context).primaryColor,
-                              size: 18,
+                              ),
                             ),
-                          ),
+                            Expanded(
+                              child: Align(
+                                alignment: AlignmentDirectional(0.9, 0),
+                                child: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryColor,
+                                  size: 18,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 50,

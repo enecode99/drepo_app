@@ -105,3 +105,39 @@ int reduceBalance(
   balance = balance - price;
   return balance;
 }
+
+String addBusiness(String clientName) {
+  // Add string + clientName
+  String a = 'has added your business';
+  return clientName + ' ' + a;
+}
+
+String removeBusiness(String clientName) {
+  // Add string + clientName
+  String a = 'has removed your business';
+  return clientName + ' ' + a;
+}
+
+String postNotification(String clientName) {
+  // Add string + clientName
+  String a = 'has added a new post';
+  return clientName + ' ' + a;
+}
+
+String rollNotification(String clientName) {
+  // Add string + clientName
+  String a = 'has added a new roll';
+  return clientName + ' ' + a;
+}
+
+String wishlistRollNotification(String clientName) {
+  // Add string + clientName
+  String a = 'has added a post to wishlist';
+  return clientName + ' ' + a;
+}
+
+String cartNotification(String clientName) {
+  // Add string + clientName
+  String a = 'has added a post to cart';
+  return clientName + ' ' + a;
+}

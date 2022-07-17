@@ -39,14 +39,6 @@ class _$NotificationsRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(DateTime)));
     }
-    value = object.notificationUser;
-    if (value != null) {
-      result
-        ..add('notification_user')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                DocumentReference, const [const FullType(Object)])));
-    }
     value = object.notificationDetails;
     if (value != null) {
       result
@@ -61,6 +53,15 @@ class _$NotificationsRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
                 DocumentReference, const [const FullType(Object)])));
+    }
+    value = object.receiverUsers;
+    if (value != null) {
+      result
+        ..add('receiver_users')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(DocumentReference, const [const FullType(Object)])
+            ])));
     }
     value = object.reference;
     if (value != null) {
@@ -93,12 +94,6 @@ class _$NotificationsRecordSerializer
           result.notificationTime = serializers.deserialize(value,
               specifiedType: const FullType(DateTime)) as DateTime;
           break;
-        case 'notification_user':
-          result.notificationUser = serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      DocumentReference, const [const FullType(Object)]))
-              as DocumentReference<Object>;
-          break;
         case 'notification_details':
           result.notificationDetails = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -108,6 +103,13 @@ class _$NotificationsRecordSerializer
                   specifiedType: const FullType(
                       DocumentReference, const [const FullType(Object)]))
               as DocumentReference<Object>;
+          break;
+        case 'receiver_users':
+          result.receiverUsers.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    DocumentReference, const [const FullType(Object)])
+              ])) as BuiltList<Object>);
           break;
         case 'Document__Reference__Field':
           result.reference = serializers.deserialize(value,
@@ -128,11 +130,11 @@ class _$NotificationsRecord extends NotificationsRecord {
   @override
   final DateTime notificationTime;
   @override
-  final DocumentReference<Object> notificationUser;
-  @override
   final String notificationDetails;
   @override
   final DocumentReference<Object> notificationSender;
+  @override
+  final BuiltList<DocumentReference<Object>> receiverUsers;
   @override
   final DocumentReference<Object> reference;
 
@@ -143,9 +145,9 @@ class _$NotificationsRecord extends NotificationsRecord {
   _$NotificationsRecord._(
       {this.notificationType,
       this.notificationTime,
-      this.notificationUser,
       this.notificationDetails,
       this.notificationSender,
+      this.receiverUsers,
       this.reference})
       : super._();
 
@@ -164,9 +166,9 @@ class _$NotificationsRecord extends NotificationsRecord {
     return other is NotificationsRecord &&
         notificationType == other.notificationType &&
         notificationTime == other.notificationTime &&
-        notificationUser == other.notificationUser &&
         notificationDetails == other.notificationDetails &&
         notificationSender == other.notificationSender &&
+        receiverUsers == other.receiverUsers &&
         reference == other.reference;
   }
 
@@ -178,9 +180,9 @@ class _$NotificationsRecord extends NotificationsRecord {
                 $jc(
                     $jc($jc(0, notificationType.hashCode),
                         notificationTime.hashCode),
-                    notificationUser.hashCode),
-                notificationDetails.hashCode),
-            notificationSender.hashCode),
+                    notificationDetails.hashCode),
+                notificationSender.hashCode),
+            receiverUsers.hashCode),
         reference.hashCode));
   }
 
@@ -189,9 +191,9 @@ class _$NotificationsRecord extends NotificationsRecord {
     return (newBuiltValueToStringHelper('NotificationsRecord')
           ..add('notificationType', notificationType)
           ..add('notificationTime', notificationTime)
-          ..add('notificationUser', notificationUser)
           ..add('notificationDetails', notificationDetails)
           ..add('notificationSender', notificationSender)
+          ..add('receiverUsers', receiverUsers)
           ..add('reference', reference))
         .toString();
   }
@@ -211,11 +213,6 @@ class NotificationsRecordBuilder
   set notificationTime(DateTime notificationTime) =>
       _$this._notificationTime = notificationTime;
 
-  DocumentReference<Object> _notificationUser;
-  DocumentReference<Object> get notificationUser => _$this._notificationUser;
-  set notificationUser(DocumentReference<Object> notificationUser) =>
-      _$this._notificationUser = notificationUser;
-
   String _notificationDetails;
   String get notificationDetails => _$this._notificationDetails;
   set notificationDetails(String notificationDetails) =>
@@ -226,6 +223,12 @@ class NotificationsRecordBuilder
       _$this._notificationSender;
   set notificationSender(DocumentReference<Object> notificationSender) =>
       _$this._notificationSender = notificationSender;
+
+  ListBuilder<DocumentReference<Object>> _receiverUsers;
+  ListBuilder<DocumentReference<Object>> get receiverUsers =>
+      _$this._receiverUsers ??= new ListBuilder<DocumentReference<Object>>();
+  set receiverUsers(ListBuilder<DocumentReference<Object>> receiverUsers) =>
+      _$this._receiverUsers = receiverUsers;
 
   DocumentReference<Object> _reference;
   DocumentReference<Object> get reference => _$this._reference;
@@ -241,9 +244,9 @@ class NotificationsRecordBuilder
     if ($v != null) {
       _notificationType = $v.notificationType;
       _notificationTime = $v.notificationTime;
-      _notificationUser = $v.notificationUser;
       _notificationDetails = $v.notificationDetails;
       _notificationSender = $v.notificationSender;
+      _receiverUsers = $v.receiverUsers?.toBuilder();
       _reference = $v.reference;
       _$v = null;
     }
@@ -263,14 +266,27 @@ class NotificationsRecordBuilder
 
   @override
   _$NotificationsRecord build() {
-    final _$result = _$v ??
-        new _$NotificationsRecord._(
-            notificationType: notificationType,
-            notificationTime: notificationTime,
-            notificationUser: notificationUser,
-            notificationDetails: notificationDetails,
-            notificationSender: notificationSender,
-            reference: reference);
+    _$NotificationsRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$NotificationsRecord._(
+              notificationType: notificationType,
+              notificationTime: notificationTime,
+              notificationDetails: notificationDetails,
+              notificationSender: notificationSender,
+              receiverUsers: _receiverUsers?.build(),
+              reference: reference);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'receiverUsers';
+        _receiverUsers?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NotificationsRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

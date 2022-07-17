@@ -1,4 +1,5 @@
 import '../add_businesses_page/add_businesses_page_widget.dart';
+import '../agricultural_products/agricultural_products_widget.dart';
 import '../allchatrooms/allchatrooms_widget.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
@@ -10,9 +11,8 @@ import '../fashion/fashion_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../food_beverages/food_beverages_widget.dart';
 import '../furniture/furniture_widget.dart';
-import '../health_beauty/health_beauty_widget.dart';
+import '../home_appliances/home_appliances_widget.dart';
 import '../main.dart';
 import '../my_cart/my_cart_widget.dart';
 import '../my_wishlist/my_wishlist_widget.dart';
@@ -1194,7 +1194,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => FoodBeveragesWidget(),
+                                    builder: (context) =>
+                                        AgriculturalProductsWidget(),
                                   ),
                                 );
                               },
@@ -1274,7 +1275,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => HealthBeautyWidget(),
+                                    builder: (context) =>
+                                        HomeAppliancesWidget(),
                                   ),
                                 );
                               },

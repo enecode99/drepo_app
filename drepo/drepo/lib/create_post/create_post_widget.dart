@@ -1,12 +1,14 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
+import '../backend/push_notifications/push_notifications_util.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
 import '../main.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -292,13 +294,13 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                         'vimmgor2' /* Services */,
                       ),
                       FFLocalizations.of(context).getText(
-                        '1c1gp5jl' /* Agriculture Products */,
+                        '1c1gp5jl' /* Agricultural Products */,
                       ),
                       FFLocalizations.of(context).getText(
                         '8twjsoym' /* Home Appliances */,
                       ),
                       FFLocalizations.of(context).getText(
-                        'c38h5zqe' /* Furniture */,
+                        'c38h5zqe' /* Furnitures */,
                       )
                     ],
                     onChanged: (val) => setState(() => postCatFieldValue = val),
@@ -417,6 +419,9 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                           options: [
                             FFLocalizations.of(context).getText(
                               'bha7lnb9' /* Gas */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              'iuj0a5l7' /* Utentils */,
                             )
                           ],
                           onChanged: (val) =>
@@ -555,6 +560,33 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                         'post_images': [uploadedFileUrl],
                       };
                       await PostsRecord.collection.doc().set(postsCreateData);
+                      triggerPushNotification(
+                        notificationTitle: 'New Post!!',
+                        notificationText: functions.postNotification(
+                            functions.postNotification(currentUserDisplayName)),
+                        notificationSound: 'default',
+                        userRefs:
+                            (currentUserDocument?.userFollowers?.toList() ?? [])
+                                .toList(),
+                        initialPageName: 'Notifications',
+                        parameterData: {},
+                      );
+
+                      final notificationsCreateData = {
+                        ...createNotificationsRecordData(
+                          notificationType: 'post',
+                          notificationTime: getCurrentTimestamp,
+                          notificationDetails: functions
+                              .postNotification(currentUserDisplayName),
+                          notificationSender: currentUserReference,
+                        ),
+                        'receiver_users':
+                            (currentUserDocument?.userFollowers?.toList() ??
+                                []),
+                      };
+                      await NotificationsRecord.collection
+                          .doc()
+                          .set(notificationsCreateData);
                       await Navigator.push(
                         context,
                         MaterialPageRoute(

@@ -3,6 +3,7 @@ import '../allchatrooms/allchatrooms_widget.dart';
 import '../auth/auth_util.dart';
 import '../backend/api_requests/api_calls.dart';
 import '../backend/backend.dart';
+import '../backend/push_notifications/push_notifications_util.dart';
 import '../business_account/business_account_widget.dart';
 import '../businesses_page/businesses_page_widget.dart';
 import '../chatroom/chatroom_widget.dart';
@@ -24,6 +25,7 @@ import '../view_roll/view_roll_widget.dart';
 import '../wallet/wallet_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -1032,50 +1034,90 @@ class _ExploreWidgetState extends State<ExploreWidget> {
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.66, -0.48),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryColor,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(50),
-                                          ),
-                                          child: ToggleIcon(
-                                            onPressed: () async {
-                                              final userCartElement =
-                                                  currentUserReference;
-                                              final userCartUpdate =
-                                                  columnPostsRecord.userCart
-                                                          .toList()
-                                                          .contains(
-                                                              userCartElement)
-                                                      ? FieldValue.arrayRemove(
-                                                          [userCartElement])
-                                                      : FieldValue.arrayUnion(
-                                                          [userCartElement]);
-                                              final postsUpdateData = {
-                                                'user_cart': userCartUpdate,
-                                              };
-                                              await columnPostsRecord.reference
-                                                  .update(postsUpdateData);
-                                            },
-                                            value: columnPostsRecord.userCart
-                                                .toList()
-                                                .contains(currentUserReference),
-                                            onIcon: Icon(
-                                              Icons.shopping_cart,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryColor,
-                                              size: 30,
+                                        child: InkWell(
+                                          onTap: () async {
+                                            triggerPushNotification(
+                                              notificationTitle: 'New Cart!!',
+                                              notificationText:
+                                                  functions.cartNotification(
+                                                      currentUserDisplayName),
+                                              notificationSound: 'default',
+                                              userRefs: [
+                                                stackUsersRecord.reference
+                                              ],
+                                              initialPageName: 'Notifications',
+                                              parameterData: {},
+                                            );
+
+                                            final notificationsCreateData = {
+                                              ...createNotificationsRecordData(
+                                                notificationType: 'cart',
+                                                notificationTime:
+                                                    getCurrentTimestamp,
+                                                notificationDetails:
+                                                    functions.cartNotification(
+                                                        currentUserDisplayName),
+                                                notificationSender:
+                                                    currentUserReference,
+                                              ),
+                                              'receiver_users': [
+                                                stackUsersRecord.reference
+                                              ],
+                                            };
+                                            await NotificationsRecord.collection
+                                                .doc()
+                                                .set(notificationsCreateData);
+                                          },
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryColor,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
                                             ),
-                                            offIcon: Icon(
-                                              Icons.shopping_cart,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiaryColor,
-                                              size: 30,
+                                            child: ToggleIcon(
+                                              onPressed: () async {
+                                                final userCartElement =
+                                                    currentUserReference;
+                                                final userCartUpdate =
+                                                    columnPostsRecord
+                                                            .userCart
+                                                            .toList()
+                                                            .contains(
+                                                                userCartElement)
+                                                        ? FieldValue
+                                                            .arrayRemove([
+                                                            userCartElement
+                                                          ])
+                                                        : FieldValue.arrayUnion(
+                                                            [userCartElement]);
+                                                final postsUpdateData = {
+                                                  'user_cart': userCartUpdate,
+                                                };
+                                                await columnPostsRecord
+                                                    .reference
+                                                    .update(postsUpdateData);
+                                              },
+                                              value: columnPostsRecord.userCart
+                                                  .toList()
+                                                  .contains(
+                                                      currentUserReference),
+                                              onIcon: Icon(
+                                                Icons.shopping_cart,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                size: 30,
+                                              ),
+                                              offIcon: Icon(
+                                                Icons.shopping_cart,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiaryColor,
+                                                size: 30,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -1244,59 +1286,98 @@ class _ExploreWidgetState extends State<ExploreWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 0, 0, 8),
-                                          child: Card(
-                                            clipBehavior:
-                                                Clip.antiAliasWithSaveLayer,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryColor,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                            ),
-                                            child: ToggleIcon(
-                                              onPressed: () async {
-                                                final userFavoriteElement =
-                                                    currentUserReference;
-                                                final userFavoriteUpdate =
-                                                    columnPostsRecord
-                                                            .userFavorite
-                                                            .toList()
-                                                            .contains(
-                                                                userFavoriteElement)
-                                                        ? FieldValue
-                                                            .arrayRemove([
-                                                            userFavoriteElement
-                                                          ])
-                                                        : FieldValue
-                                                            .arrayUnion([
-                                                            userFavoriteElement
-                                                          ]);
-                                                final postsUpdateData = {
-                                                  'user_favorite':
-                                                      userFavoriteUpdate,
-                                                };
-                                                await columnPostsRecord
-                                                    .reference
-                                                    .update(postsUpdateData);
-                                              },
-                                              value: columnPostsRecord
-                                                  .userFavorite
-                                                  .toList()
-                                                  .contains(
-                                                      currentUserReference),
-                                              onIcon: Icon(
-                                                Icons.favorite,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                size: 30,
+                                          child: InkWell(
+                                            onTap: () async {
+                                              triggerPushNotification(
+                                                notificationTitle:
+                                                    'New Wishlist!!',
+                                                notificationText: functions
+                                                    .wishlistRollNotification(
+                                                        currentUserDisplayName),
+                                                notificationSound: 'default',
+                                                userRefs: [
+                                                  stackUsersRecord.reference
+                                                ],
+                                                initialPageName:
+                                                    'Notifications',
+                                                parameterData: {},
+                                              );
+
+                                              final notificationsCreateData = {
+                                                ...createNotificationsRecordData(
+                                                  notificationType: 'wishlist',
+                                                  notificationTime:
+                                                      getCurrentTimestamp,
+                                                  notificationDetails: functions
+                                                      .wishlistRollNotification(
+                                                          currentUserDisplayName),
+                                                  notificationSender:
+                                                      currentUserReference,
+                                                ),
+                                                'receiver_users': [
+                                                  stackUsersRecord.reference
+                                                ],
+                                              };
+                                              await NotificationsRecord
+                                                  .collection
+                                                  .doc()
+                                                  .set(notificationsCreateData);
+                                            },
+                                            child: Card(
+                                              clipBehavior:
+                                                  Clip.antiAliasWithSaveLayer,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(50),
                                               ),
-                                              offIcon: Icon(
-                                                Icons.favorite,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiaryColor,
-                                                size: 30,
+                                              child: ToggleIcon(
+                                                onPressed: () async {
+                                                  final userFavoriteElement =
+                                                      currentUserReference;
+                                                  final userFavoriteUpdate =
+                                                      columnPostsRecord
+                                                              .userFavorite
+                                                              .toList()
+                                                              .contains(
+                                                                  userFavoriteElement)
+                                                          ? FieldValue
+                                                              .arrayRemove([
+                                                              userFavoriteElement
+                                                            ])
+                                                          : FieldValue
+                                                              .arrayUnion([
+                                                              userFavoriteElement
+                                                            ]);
+                                                  final postsUpdateData = {
+                                                    'user_favorite':
+                                                        userFavoriteUpdate,
+                                                  };
+                                                  await columnPostsRecord
+                                                      .reference
+                                                      .update(postsUpdateData);
+                                                },
+                                                value: columnPostsRecord
+                                                    .userFavorite
+                                                    .toList()
+                                                    .contains(
+                                                        currentUserReference),
+                                                onIcon: Icon(
+                                                  Icons.favorite,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryColor,
+                                                  size: 30,
+                                                ),
+                                                offIcon: Icon(
+                                                  Icons.favorite,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiaryColor,
+                                                  size: 30,
+                                                ),
                                               ),
                                             ),
                                           ),

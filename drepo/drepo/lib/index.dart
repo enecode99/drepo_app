@@ -5,17 +5,17 @@ export 'phone_verification/phone_verification_widget.dart'
 export 'phone_sign_up/phone_sign_up_widget.dart' show PhoneSignUpWidget;
 export 'sign_in/sign_in_widget.dart' show SignInWidget;
 export 'forgot_pass/forgot_pass_widget.dart' show ForgotPassWidget;
-export 'explore/explore_widget.dart' show ExploreWidget;
 export 'sign_up/sign_up_widget.dart' show SignUpWidget;
 export 'home/home_widget.dart' show HomeWidget;
+export 'explore/explore_widget.dart' show ExploreWidget;
 export 'welcome/welcome_widget.dart' show WelcomeWidget;
 export 'user_posts_rolls/user_posts_rolls_widget.dart'
     show UserPostsRollsWidget;
 export 'profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export 'user_info/user_info_widget.dart' show UserInfoWidget;
+export 'businesses_page/businesses_page_widget.dart' show BusinessesPageWidget;
 export 'business_account/business_account_widget.dart'
     show BusinessAccountWidget;
-export 'businesses_page/businesses_page_widget.dart' show BusinessesPageWidget;
 export 'product_page/product_page_widget.dart' show ProductPageWidget;
 export 'create_post/create_post_widget.dart' show CreatePostWidget;
 export 'view_roll/view_roll_widget.dart' show ViewRollWidget;
@@ -28,8 +28,9 @@ export 'fashion/fashion_widget.dart' show FashionWidget;
 export 'property_equipment/property_equipment_widget.dart'
     show PropertyEquipmentWidget;
 export 'services/services_widget.dart' show ServicesWidget;
-export 'food_beverages/food_beverages_widget.dart' show FoodBeveragesWidget;
-export 'health_beauty/health_beauty_widget.dart' show HealthBeautyWidget;
+export 'agricultural_products/agricultural_products_widget.dart'
+    show AgriculturalProductsWidget;
+export 'home_appliances/home_appliances_widget.dart' show HomeAppliancesWidget;
 export 'furniture/furniture_widget.dart' show FurnitureWidget;
 export 'polices/polices_widget.dart' show PolicesWidget;
 export 'wallet/wallet_widget.dart' show WalletWidget;

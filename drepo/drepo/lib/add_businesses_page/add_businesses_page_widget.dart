@@ -410,7 +410,7 @@ class _AddBusinessesPageWidgetState extends State<AddBusinessesPageWidget> {
                                                       final usersUpdateData = {
                                                         'user_followers':
                                                             FieldValue
-                                                                .arrayUnion([
+                                                                .arrayRemove([
                                                           currentUserReference
                                                         ]),
                                                       };

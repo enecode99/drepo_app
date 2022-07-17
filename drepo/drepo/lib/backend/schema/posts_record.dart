@@ -92,6 +92,44 @@ abstract class PostsRecord implements Built<PostsRecord, PostsRecordBuilder> {
       .get()
       .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static PostsRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) => PostsRecord(
+        (c) => c
+          ..postContent = snapshot.data['post_content']
+          ..postTime = safeGet(() =>
+              DateTime.fromMillisecondsSinceEpoch(snapshot.data['post_time']))
+          ..postPrice = snapshot.data['post_price']?.round()
+          ..userPost = safeGet(() => toRef(snapshot.data['user_post']))
+          ..postCategory = snapshot.data['post_category']
+          ..userFavorite = safeGet(() =>
+              ListBuilder(snapshot.data['user_favorite'].map((s) => toRef(s))))
+          ..userCart = safeGet(() =>
+              ListBuilder(snapshot.data['user_cart'].map((s) => toRef(s))))
+          ..postImages =
+              safeGet(() => ListBuilder(snapshot.data['post_images']))
+          ..productDetails = snapshot.data['product_details']
+          ..postID = snapshot.data['postID']
+          ..postQuantity = snapshot.data['post_quantity']?.round()
+          ..cartTotal = snapshot.data['cart_Total']?.round()
+          ..postOrder = safeGet(() => toRef(snapshot.data['post_order']))
+          ..postSubcategory = snapshot.data['post_subcategory']
+          ..reference = PostsRecord.collection.doc(snapshot.objectID),
+      );
+
+  static Future<List<PostsRecord>> search(
+          {String term,
+          FutureOr<LatLng> location,
+          int maxResults,
+          double searchRadiusMeters}) =>
+      FFAlgoliaManager.instance
+          .algoliaQuery(
+            index: 'posts',
+            term: term,
+            maxResults: maxResults,
+            location: location,
+            searchRadiusMeters: searchRadiusMeters,
+          )
+          .then((r) => r.map(fromAlgolia).toList());
+
   PostsRecord._();
   factory PostsRecord([void Function(PostsRecordBuilder) updates]) =
       _$PostsRecord;

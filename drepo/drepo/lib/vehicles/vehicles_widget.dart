@@ -7,7 +7,6 @@ import '../product_page/product_page_widget.dart';
 import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:text_search/text_search.dart';
 
 class VehiclesWidget extends StatefulWidget {
   const VehiclesWidget({Key key}) : super(key: key);
@@ -17,7 +16,7 @@ class VehiclesWidget extends StatefulWidget {
 }
 
 class _VehiclesWidgetState extends State<VehiclesWidget> {
-  List<PostsRecord> simpleSearchResults = [];
+  List<PostsRecord> algoliaSearchResults = [];
   TextEditingController textController;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -95,24 +94,13 @@ class _VehiclesWidgetState extends State<VehiclesWidget> {
                                   EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
                               child: InkWell(
                                 onTap: () async {
-                                  await queryPostsRecordOnce()
-                                      .then(
-                                        (records) => simpleSearchResults =
-                                            TextSearch(
-                                          records
-                                              .map(
-                                                (record) => TextSearchItem(
-                                                    record,
-                                                    [record.postContent]),
-                                              )
-                                              .toList(),
-                                        )
-                                                .search(textController.text)
-                                                .map((r) => r.object)
-                                                .toList(),
-                                      )
+                                  setState(() => algoliaSearchResults = null);
+                                  await PostsRecord.search(
+                                    term: textController.text,
+                                  )
+                                      .then((r) => algoliaSearchResults = r)
                                       .onError(
-                                          (_, __) => simpleSearchResults = [])
+                                          (_, __) => algoliaSearchResults = [])
                                       .whenComplete(() => setState(() {}));
                                 },
                                 child: Icon(

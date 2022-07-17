@@ -204,65 +204,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
   },
-  // Explore
-  {
-    'a4vs9glo': {
-      'en': 'Enquire',
-      'sw': 'Uliza',
-    },
-    '38mwqkxq': {
-      'en': 'Drepo Store',
-      'sw': 'Soko la Drepo',
-    },
-    'rqsqiy0n': {
-      'en': 'Drepo Products',
-      'sw': 'Bidhaa za Drepo',
-    },
-    'uav9ewvc': {
-      'en': 'My Chats',
-      'sw': 'Chati Zangu',
-    },
-    '4gbeqw8k': {
-      'en': 'Businesses',
-      'sw': 'Biashara',
-    },
-    'i744xedj': {
-      'en': 'My Cart',
-      'sw': 'Kapu langu',
-    },
-    'tbrraez3': {
-      'en': 'My Wishlist',
-      'sw': 'Penda',
-    },
-    '1ljyfte3': {
-      'en': 'My Wallet ',
-      'sw': 'Malipo',
-    },
-    'ambhh3at': {
-      'en': 'Notifications',
-      'sw': 'Arifa',
-    },
-    '9v4wx0i1': {
-      'en': 'Policies',
-      'sw': 'Sera',
-    },
-    'fqhlkwwa': {
-      'en': 'Add Business',
-      'sw': 'Ongeza Biashara',
-    },
-    'oghjsn3e': {
-      'en': 'SignOut',
-      'sw': 'Toka',
-    },
-    '4ui9ak9p': {
-      'en': 'Drepo Products',
-      'sw': '',
-    },
-    'io8eig88': {
-      'en': 'Explore',
-      'sw': '',
-    },
-  },
   // SignUp
   {
     'k2cezrnm': {
@@ -461,6 +402,65 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
   },
+  // Explore
+  {
+    'a4vs9glo': {
+      'en': 'Enquire',
+      'sw': 'Uliza',
+    },
+    '38mwqkxq': {
+      'en': 'Drepo Store',
+      'sw': 'Soko la Drepo',
+    },
+    'rqsqiy0n': {
+      'en': 'Drepo Products',
+      'sw': 'Bidhaa za Drepo',
+    },
+    'uav9ewvc': {
+      'en': 'My Chats',
+      'sw': 'Chati Zangu',
+    },
+    '4gbeqw8k': {
+      'en': 'Businesses',
+      'sw': 'Biashara',
+    },
+    'i744xedj': {
+      'en': 'My Cart',
+      'sw': 'Kapu langu',
+    },
+    'tbrraez3': {
+      'en': 'My Wishlist',
+      'sw': 'Penda',
+    },
+    '1ljyfte3': {
+      'en': 'My Wallet ',
+      'sw': 'Malipo',
+    },
+    'ambhh3at': {
+      'en': 'Notifications',
+      'sw': 'Arifa',
+    },
+    '9v4wx0i1': {
+      'en': 'Policies',
+      'sw': 'Sera',
+    },
+    'fqhlkwwa': {
+      'en': 'Add Business',
+      'sw': 'Ongeza Biashara',
+    },
+    'oghjsn3e': {
+      'en': 'SignOut',
+      'sw': 'Toka',
+    },
+    '4ui9ak9p': {
+      'en': 'Drepo Products',
+      'sw': '',
+    },
+    'io8eig88': {
+      'en': 'Explore',
+      'sw': '',
+    },
+  },
   // Welcome
   {
     '49ommtie': {
@@ -613,21 +613,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
   },
-  // BusinessAccount
-  {
-    'u0wct6ps': {
-      'en': 'Business',
-      'sw': 'Biashara',
-    },
-    'cq92df3t': {
-      'en': 'Business Information',
-      'sw': 'Maelezo ya Biashara:',
-    },
-    'y845uzlk': {
-      'en': 'Home',
-      'sw': '',
-    },
-  },
   // BusinessesPage
   {
     '1uj3yb5u': {
@@ -640,6 +625,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '96lceadh': {
       'en': 'Shop',
+      'sw': '',
+    },
+  },
+  // BusinessAccount
+  {
+    'u0wct6ps': {
+      'en': 'Business',
+      'sw': 'Biashara',
+    },
+    'cq92df3t': {
+      'en': 'Business Information',
+      'sw': 'Maelezo ya Biashara:',
+    },
+    'y845uzlk': {
+      'en': 'Home',
       'sw': '',
     },
   },
@@ -721,7 +721,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Huduma',
     },
     '1c1gp5jl': {
-      'en': 'Agriculture Products',
+      'en': 'Agricultural Products',
       'sw': 'Bidhaa za Kilimo',
     },
     '8twjsoym': {
@@ -729,7 +729,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': 'Vifaa vya Nyumbani',
     },
     'c38h5zqe': {
-      'en': 'Furniture',
+      'en': 'Furnitures',
       'sw': 'Samani',
     },
     'iwew54dx': {
@@ -767,6 +767,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'bha7lnb9': {
       'en': 'Gas',
       'sw': 'Gesi',
+    },
+    'iuj0a5l7': {
+      'en': 'Utentils',
+      'sw': 'Vyombo',
     },
     'srjsm7bd': {
       'en': 'Please select...',
@@ -941,11 +945,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Search events here...',
       'sw': '',
     },
-    '7z72mneu': {
+    'aim34x82': {
       'en': 'Ladies',
       'sw': 'Wanawake',
     },
-    '0r6biplk': {
+    'xashz9m1': {
       'en': 'Gentlemens',
       'sw': 'Wanaume',
     },
@@ -984,10 +988,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
   },
-  // FoodBeverages
+  // AgriculturalProducts
   {
     'iza2pyv9': {
-      'en': 'Agriculture Products',
+      'en': 'Agricultural Products',
       'sw': 'Bidhaa za Kilimo',
     },
     'zdqa3e2d': {
@@ -999,7 +1003,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'sw': '',
     },
   },
-  // HealthBeauty
+  // HomeAppliances
   {
     '50q7spwn': {
       'en': 'Home Appliances ',
@@ -1008,6 +1012,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ihpabuwk': {
       'en': 'Search events here...',
       'sw': '',
+    },
+    'lczmlocy': {
+      'en': 'Gas',
+      'sw': 'Gesi',
+    },
+    '9u8uns5o': {
+      'en': 'Utilities ',
+      'sw': 'Vyombo',
     },
     'a61frhn7': {
       'en': 'Home',

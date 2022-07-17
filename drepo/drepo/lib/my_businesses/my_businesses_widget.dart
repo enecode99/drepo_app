@@ -394,7 +394,7 @@ class _MyBusinessesWidgetState extends State<MyBusinessesWidget> {
                                                     final usersUpdateData = {
                                                       'user_followers':
                                                           FieldValue
-                                                              .arrayUnion([
+                                                              .arrayRemove([
                                                         currentUserReference
                                                       ]),
                                                     };
